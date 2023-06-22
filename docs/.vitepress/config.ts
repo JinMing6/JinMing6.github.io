@@ -14,8 +14,22 @@ export default defineConfig({
 					text: "引导",
 					items: [
 						{
-							text: "概述",
+							text: "前言",
 							link: "/guide/",
+						},
+						{
+							text: "git",
+							link: "/guide/git/scene",
+              items: [
+                {
+                  text: "实战场景",
+                  link: "/guide/git/scene"
+                },
+                {
+                  text: "规范指导",
+                  link: "/guide/git/standard"
+                }
+              ]
 						},
 					],
 				}
@@ -54,5 +68,5 @@ export default defineConfig({
       copyright: 'Copyright © 2023-present Jinming Zhao'
     }
 	},
-  lastUpdated: true
+  lastUpdated: true,
 });
