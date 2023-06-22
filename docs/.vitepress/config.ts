@@ -2,6 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "https://jinming6.github.io",
 	title: "Jinming6",
 	description: "个人博客",
 	themeConfig: {
