@@ -17,22 +17,21 @@ export default defineConfig({
 							text: "前言",
 							link: "/guide/",
 						},
-						{
-							text: "git",
-							link: "/guide/git/scene",
-              items: [
-                {
-                  text: "实战场景",
-                  link: "/guide/git/scene"
-                },
-                {
-                  text: "规范指导",
-                  link: "/guide/git/standard"
-                }
-              ]
-						},
 					],
-				}
+				},
+        {
+          text: "git",
+          items: [
+            {
+              text: "实战场景",
+              link: "/guide/git/scene"
+            },
+            {
+              text: "规范指导",
+              link: "/guide/git/standard"
+            }
+          ]
+        },
 			],
 		},
 
