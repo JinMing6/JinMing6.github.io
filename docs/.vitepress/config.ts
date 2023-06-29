@@ -9,7 +9,7 @@ export default defineConfig({
 		nav: [{ text: "主页", link: "/guide/" }],
 
 		sidebar: {
-			'/guide/': [
+			"/guide/": [
 				{
 					text: "引导",
 					items: [
@@ -19,19 +19,28 @@ export default defineConfig({
 						},
 					],
 				},
-        {
-          text: "git",
-          items: [
-            {
-              text: "实战场景",
-              link: "/guide/git/scene"
-            },
-            {
-              text: "规范指导",
-              link: "/guide/git/standard"
-            }
-          ]
-        },
+				{
+					text: "计算机基础",
+					items: [
+						{
+							text: "内存",
+							link: "/guide/computer-basics/memory",
+						},
+					],
+				},
+				{
+					text: "git",
+					items: [
+						{
+							text: "实战场景",
+							link: "/guide/git/scene",
+						},
+						{
+							text: "规范指导",
+							link: "/guide/git/standard",
+						},
+					],
+				},
 			],
 		},
 
@@ -63,9 +72,9 @@ export default defineConfig({
 			},
 		},
 
-    footer: {
-      copyright: 'Copyright © 2023-present Jinming Zhao'
-    }
+		footer: {
+			copyright: "Copyright © 2023-present Jinming Zhao",
+		},
 	},
-  lastUpdated: true,
+	lastUpdated: true,
 });
