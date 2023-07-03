@@ -28,6 +28,15 @@ export default defineConfig({
 						},
 					],
 				},
+                {
+                    text: "JavaScript",
+                    items: [
+                        {
+                            text: "判断数据类型",
+                            link: "/guide/javascript/"
+                        }
+                    ]
+                },
 				{
 					text: "git",
 					items: [
