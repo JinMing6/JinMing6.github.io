@@ -26,6 +26,10 @@ export default defineConfig({
 							text: "内存",
 							link: "/guide/computer-basics/memory",
 						},
+						{
+							text: "网络模型",
+							link: "/guide/computer-basics/network",
+						},
 					],
 				},
                 {
