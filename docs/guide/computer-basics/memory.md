@@ -11,7 +11,7 @@
 
 ```js
 function foo() {
-	key = new Array(1e6).fill(""); // 这里会开辟一段内存空间。
+	key = new Array(1e6).fill(''); // 这里会开辟一段内存空间。
 	// 函数调用完毕后，未及时释放上一行开辟的内存空间，这里就导致了内存泄漏。
 }
 ```
@@ -33,14 +33,14 @@ function foo() {
 		<button id="clear-btn">Clear</button>
 		<script>
 			function foo() {
-				key = new Array(1e6).fill("");
+				key = new Array(1e6).fill('');
 			}
 
-			const btn = document.querySelector("#btn");
-			btn.addEventListener("click", foo);
+			const btn = document.querySelector('#btn');
+			btn.addEventListener('click', foo);
 
-			const clearBtn = document.querySelector("#clear-btn");
-			clearBtn.addEventListener("click", () => {
+			const clearBtn = document.querySelector('#clear-btn');
+			clearBtn.addEventListener('click', () => {
 				key = null;
 			});
 		</script>
@@ -49,7 +49,7 @@ function foo() {
 ```
 
 **内存快照**
-![内存快照](/imgs/memory-leak.png)
+![内存快照](/images/memory-leak.png)
 
 ## 内存溢出
 
@@ -63,7 +63,8 @@ function foo() {
 ```
 
 ### 示例
-点击Button后则会触发foo函数无限递归，造成内存溢出。
+
+点击 Button 后则会触发 foo 函数无限递归，造成内存溢出。
 
 ```html
 <!DOCTYPE html>
@@ -80,12 +81,12 @@ function foo() {
 				foo();
 			}
 
-			const btn = document.querySelector("#btn");
-			btn.addEventListener("click", foo);
+			const btn = document.querySelector('#btn');
+			btn.addEventListener('click', foo);
 		</script>
 	</body>
 </html>
 ```
 
 **打印结果**
-![](/imgs/memory-overflow.png)
+![](/images/memory-overflow.png)

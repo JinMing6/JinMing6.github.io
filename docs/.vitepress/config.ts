@@ -54,6 +54,15 @@ export default defineConfig({
 						},
 					],
 				},
+				{
+					text: '案例分享',
+					items: [
+						{
+							text: 'index',
+							link: '/guide/example/',
+						},
+					],
+				},
 			],
 		},
 
@@ -86,7 +95,7 @@ export default defineConfig({
 		},
 
 		footer: {
-			copyright: 'Copyright © 2023-present Jinming Zhao',
+			copyright: 'Copyright © 2023-present Jinming',
 		},
 	},
 	lastUpdated: true,
