@@ -33,7 +33,7 @@ import { core } from '../_data/team'
   <VPTeamPageSection>
     <template #title>微信公众号</template>
     <template #lead>
-      <img src="/images/IMG_6735.JPG" />
+      <img src="/images/IMG_6735.jpeg" />
     </template>
   </VPTeamPageSection>
 </VPTeamPage>

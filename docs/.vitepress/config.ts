@@ -19,50 +19,6 @@ export default defineConfig({
 						},
 					],
 				},
-				{
-					text: '计算机基础',
-					items: [
-						{
-							text: '内存',
-							link: '/guide/computer-basics/memory',
-						},
-						{
-							text: '网络模型',
-							link: '/guide/computer-basics/network',
-						},
-					],
-				},
-				{
-					text: 'JavaScript',
-					items: [
-						{
-							text: '判断数据类型',
-							link: '/guide/javascript/',
-						},
-					],
-				},
-				{
-					text: 'git',
-					items: [
-						{
-							text: '实战场景',
-							link: '/guide/git/scene',
-						},
-						{
-							text: '规范指导',
-							link: '/guide/git/standard',
-						},
-					],
-				},
-				{
-					text: '案例分享',
-					items: [
-						{
-							text: 'index',
-							link: '/guide/example/',
-						},
-					],
-				},
 			],
 		},
 

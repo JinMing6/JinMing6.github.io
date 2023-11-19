@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: 'Jinming6'
-  tagline: '追求理想，永不言败。'
+  tagline: '写不出的时候不硬写。--- 鲁迅'
   actions:
     - theme: brand
       text: 开始阅读
