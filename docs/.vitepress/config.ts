@@ -19,6 +19,15 @@ export default defineConfig({
 						},
 					],
 				},
+				{
+					text: '示例',
+					items: [
+						{
+							text: '旋转木马',
+							link: '/guide/example/rotate-banner',
+						},
+					],
+				},
 			],
 		},
 

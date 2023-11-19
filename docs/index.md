@@ -19,4 +19,7 @@ features:
   - title: 微信公众号
     linkText: '点击查看'
     link: /more-info/
+  - title: Bilibili
+    linkText: '点击查看'
+    link: https://space.bilibili.com/248544247?spm_id_from=333.1007.0.0
 ---
