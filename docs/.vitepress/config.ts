@@ -26,6 +26,10 @@ export default defineConfig({
 							text: '旋转木马',
 							link: '/guide/example/rotate-banner',
 						},
+						{
+							text: '表格组件 ( 附加功能 )',
+							link: '/guide/example/additional-table',
+						},
 					],
 				},
 			],
