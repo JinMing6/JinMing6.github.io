@@ -27,8 +27,12 @@ export default defineConfig({
 							link: '/guide/example/rotate-banner',
 						},
 						{
-							text: '表格组件 ( 附加功能 )',
-							link: '/guide/example/additional-table',
+							text: 'Element UI 表格',
+							link: '/guide/example/el-table',
+						},
+						{
+							text: 'OCR 应用示例',
+							link: '/guide/example/ocr-demo',
 						},
 					],
 				},
