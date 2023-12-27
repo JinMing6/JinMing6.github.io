@@ -30,10 +30,4 @@ import { core } from '../_data/team'
       <p>邮箱: response965@163.com</p>
     </template>
   </VPTeamPageSection>
-  <VPTeamPageSection>
-    <template #title>微信公众号</template>
-    <template #lead>
-      <img src="/images/IMG_6735.jpeg" />
-    </template>
-  </VPTeamPageSection>
 </VPTeamPage>

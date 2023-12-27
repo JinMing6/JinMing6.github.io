@@ -2,8 +2,10 @@ import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+	lang: 'zh-CN',
 	title: 'Jinming6',
 	description: '个人博客',
+	appearance: 'force-dark',
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
 		nav: [{ text: '主页', link: '/guide/' }],
@@ -16,6 +18,15 @@ export default defineConfig({
 						{
 							text: '前言',
 							link: '/guide/',
+						},
+					],
+				},
+				{
+					text: '插件',
+					items: [
+						{
+							text: 'merge-helper',
+							link: '/guide/plugins/merge-helper',
 						},
 					],
 				},
