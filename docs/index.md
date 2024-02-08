@@ -4,11 +4,11 @@ layout: home
 
 hero:
   name: 'Jinming6'
-  tagline: '写不出的时候不硬写。--- 鲁迅'
+  tagline: '个人博客'
   actions:
     - theme: brand
       text: 开始阅读
-      link: /guide/
+      link: /plugins/merge-helper
     - theme: alt
       text: 了解更多
       link: /more-info/
