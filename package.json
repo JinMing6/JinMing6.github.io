@@ -1,5 +1,5 @@
 {
-  "name": "JinMing6.github.io",
+  "name": "Jinming6.github.io",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,19 +15,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-config-standard-with-typescript": "^39.1.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^9.0.10",
     "lint-staged": "^15.2.2",
     "prettier": "^2.8.8",
-    "typescript": "*",
     "vitepress": "1.0.0-rc.42"
   },
   "type": "module",
@@ -38,5 +35,8 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "@jinming6/merge-helper": "github:Jinming6/merge-helper#develop"
   }
 }

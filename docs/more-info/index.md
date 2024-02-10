@@ -24,10 +24,4 @@ import { core } from '../_data/team'
       <VPTeamMembers :members="core" />
     </template>
   </VPTeamPageSection>
-  <VPTeamPageSection>
-    <template #title>联系方式</template>
-    <template #lead>
-      <p>邮箱: response965@163.com</p>
-    </template>
-  </VPTeamPageSection>
 </VPTeamPage>

@@ -44,23 +44,19 @@ export default defineConfig({
         },
       ],
     },
-
     docFooter: {
       prev: '上一页',
       next: '下一页',
     },
-
     lastUpdated: {
       text: '上次更新',
     },
-
     socialLinks: [
       {
         icon: 'github',
         link: 'https://github.com/JinMing6/JinMing6.github.io',
       },
     ],
-
     search: {
       provider: 'local',
       options: {
@@ -81,7 +77,6 @@ export default defineConfig({
         },
       },
     },
-
     footer: {
       copyright: 'Copyright © 2023-present Jinming',
     },
