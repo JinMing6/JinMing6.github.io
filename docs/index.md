@@ -15,7 +15,7 @@ hero:
 features:
   - title: 掘金
     linkText: '点击查看'
-    link: https://juejin.cn/user/184373686577341
+    link: https://juejin.cn/user/184373686577341/posts
   - title: Bilibili
     linkText: '点击查看'
     link: https://space.bilibili.com/248544247?spm_id_from=333.1007.0.0
