@@ -7,7 +7,7 @@ export default defineConfig({
   appearance: 'force-dark',
   themeConfig: {
     nav: [
-      { text: '主页', link: '/plugins/' },
+      { text: '主页', link: '/plugins/merge-helper' },
       { text: '插件', link: '/plugins/merge-helper' },
       { text: '示例', link: '/example/rotate-banner' },
     ],
