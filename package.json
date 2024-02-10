@@ -35,8 +35,5 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
-  },
-  "dependencies": {
-    "@jinming6/merge-helper": "github:Jinming6/merge-helper#develop"
   }
 }

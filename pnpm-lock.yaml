@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  '@jinming6/merge-helper':
-    specifier: github:Jinming6/merge-helper#develop
-    version: github.com/Jinming6/merge-helper/297d50eff2d28e52ea61f0c01bf40bc570344ce5
-
 devDependencies:
   commitizen:
     specifier: ^4.3.0
@@ -1983,14 +1978,6 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /dotenv@16.4.1:
-    resolution:
-      {
-        integrity: sha512-CjA3y+Dr3FyFDOAMnxZEGtnW9KBR2M0JvvUtXNW+dYJL5ROWxP9DUHCwgFqpMk0OXCc0ljhaNTr2w/kutYIcHQ==,
-      }
-    engines: { node: '>=12' }
-    dev: false
-
   /emoji-regex@10.3.0:
     resolution:
       {
@@ -3496,6 +3483,7 @@ packages:
       {
         integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==,
       }
+    dev: true
 
   /log-symbols@4.1.0:
     resolution:
@@ -4971,17 +4959,3 @@ packages:
       }
     engines: { node: '>=10' }
     dev: true
-
-  github.com/Jinming6/merge-helper/297d50eff2d28e52ea61f0c01bf40bc570344ce5:
-    resolution:
-      {
-        tarball: https://codeload.github.com/Jinming6/merge-helper/tar.gz/297d50eff2d28e52ea61f0c01bf40bc570344ce5,
-      }
-    name: '@jinming6/merge-helper'
-    version: 1.2.1
-    prepare: true
-    requiresBuild: true
-    dependencies:
-      dotenv: 16.4.1
-      lodash: 4.17.21
-    dev: false
