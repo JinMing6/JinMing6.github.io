@@ -4,15 +4,15 @@
 
 # merge-helper
 
+轻松处理单元格的合并
+
+> 效果
+
+![截屏2024-01-07 23.44.15.png](https://s2.loli.net/2024/01/07/rqlRbZgUt6TD3xk.png)
+
 > 目录
 
 [[toc]]
-
-> 描述
-
-轻松处理单元格的合并
-
-![截屏2024-01-07 23.44.15.png](https://s2.loli.net/2024/01/07/rqlRbZgUt6TD3xk.png)
 
 ## 特性
 
@@ -98,20 +98,52 @@ function spanMethod({ row, column }) {
 
 - 参数
 
-| 名称        | 类型                       | 必填 | 描述                                                    |
-| ----------- | -------------------------- | ---- | ------------------------------------------------------- |
-| dataSource  | Array                      | 是   | 数据源                                                  |
-| mergeFields | [Array](#mergefields-属性) | 是   | 需要进行「行合并」的字段                                |
-| genSort     | Boolean                    | 否   | 是否生成「行合并」后的序号                              |
-| sortBy      | String                     | 否   | 按照该字段的纬度进行排序（默认取 mergeFields 的第一项） |
-| mode        | [Number](#mode-属性)       | 是   | 合并模式                                                |
-| columns     | [Array](#columns-属性)     | 否   | 列头                                                    |
+| 名称        | 类型                  | 必填 | 描述                                                    |
+| ----------- | --------------------- | ---- | ------------------------------------------------------- |
+| dataSource  | Array                 | 是   | 数据源                                                  |
+| mergeFields | [Array](#mergefields) | 是   | 需要进行「行合并」的字段                                |
+| genSort     | Boolean               | 否   | 是否生成「行合并」后的序号                              |
+| sortBy      | String                | 否   | 按照该字段的纬度进行排序（默认取 mergeFields 的第一项） |
+| mode        | [Number](#mode)       | 是   | 合并模式                                                |
+| columns     | [Array](#columns)     | 否   | 列头                                                    |
 
 - 方法
 
 | 名称          | 参数 | 描述             |
 | ------------- | ---- | ---------------- |
 | getMergedData | --   | 获取合并后的数据 |
+
+- 示例
+
+```js
+import { CellMerger, Mode } from '@jinming6/merge-helper';
+
+// 属性配置
+const options = {
+  mode: Mode.Row,
+  dataSource: [
+    { province: '山东省', name: '张三' },
+    { province: '山东省', name: '张三' },
+    { province: '江苏省', name: '李四' },
+  ],
+  mergeFields: [
+    {
+      field: 'province',
+      callback(curItem, nextItem) {
+        // 自定义合并条件
+        return (
+          curItem.name === nextItem.name &&
+          curItem.province === nextItem.province
+        );
+      },
+    },
+  ],
+  genSort: true,
+};
+const cellMerger = new CellMerger(options);
+// 合并后的数据
+const mergedData = cellMerger.getMergedData();
+```
 
 ### mode
 
@@ -123,6 +155,14 @@ function spanMethod({ row, column }) {
 | Col    | Number | 1   | 合并列     |
 | RowCol | Number | 2   | 合并行和列 |
 
+- 示例
+
+```js
+import { Mode } from '@jinming6/merge-helper';
+
+const mode = Mode.Row;
+```
+
 ### mergeFields
 
 - 参数
@@ -132,6 +172,22 @@ function spanMethod({ row, column }) {
 | field    | String   | 是   | 字段名称                     |
 | callback | Function | 是   | 自定义逻辑进行「行合并计算」 |
 
+- 示例
+
+```js
+const mergeFields = ['province'];
+/* 
+或者使用自定义条件
+const mergeFields = [
+  {
+    field: 'province',
+    callback(curItem, nextItem) {
+      return curItem.province === nextItem.province;
+    },
+  },
+]; */
+```
+
 ### columns
 
 - 参数
@@ -140,9 +196,35 @@ function spanMethod({ row, column }) {
 | ---- | ------ | ---- | ------ |
 | prop | String | 是   | 列字段 |
 
+- 示例
+
+```js
+const columns = [
+  {
+    prop: 'name',
+  },
+  {
+    prop: 'age',
+  },
+  {
+    prop: 'address',
+  },
+];
+```
+
 ### getMergedData
 
 获取合并后的数据
+
+- 语法
+
+`getMergedData(options)`
+
+- 参数
+
+同 [CellMerger](#cellmerger)
+
+- 示例
 
 ```js
 import { getMergedData, Mode } from '@jinming6/merge-helper';
@@ -208,7 +290,7 @@ const spanMethod = ({ row, columnIndex }) => {
 
 ### splitIntoFragments
 
-将数据拆分为二维数组
+将数据拆分为二维数组，一般用于分页打印 PDF。
 
 - 语法
 
@@ -236,4 +318,44 @@ const result = splitIntoFragments({
   mergeFields: ['name'],
   genSort: true, // 可生成排序
 });
+
+/* Before: 处理前的数据 */
+// [
+//   {
+//     name: '张三',
+//   },
+//   {
+//     name: '李四',
+//   },
+//   {
+//     name: '王五',
+//   },
+//   {
+//     name: '马六',
+//   },
+// ];
+
+/* After: 处理后的数据 */
+// [
+//   [
+//     {
+//       // 1
+//       name: '张三',
+//     },
+//     {
+//       // 2
+//       name: '李四',
+//     },
+//     {
+//       // 3
+//       name: '王五',
+//     },
+//   ],
+//   [
+//     {
+//       // 4
+//       name: '马六',
+//     },
+//   ],
+// ];
 ```

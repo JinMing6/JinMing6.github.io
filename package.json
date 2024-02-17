@@ -25,6 +25,7 @@
     "husky": "^9.0.10",
     "lint-staged": "^15.2.2",
     "prettier": "^2.8.8",
+    "sass": "^1.71.0",
     "vitepress": "1.0.0-rc.42"
   },
   "type": "module",
@@ -35,5 +36,8 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown --allow-empty"
+  },
+  "dependencies": {
+    "three": "^0.161.0"
   }
 }

@@ -7,10 +7,9 @@ export default defineConfig({
   appearance: 'force-dark',
   themeConfig: {
     nav: [
-      { text: '主页', link: '/plugins/merge-helper' },
+      { text: '插件', link: '/plugins/merge-helper' },
       { text: '示例', link: '/example/rotate-banner' },
     ],
-
     sidebar: {
       '/plugins/': [
         {
@@ -39,6 +38,10 @@ export default defineConfig({
               text: 'OCR 应用示例',
               link: '/example/ocr-demo',
             },
+            {
+              text: 'three.js 示例',
+              link: '/example/three-demo',
+            },
           ],
         },
       ],
@@ -53,7 +56,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/JinMing6/JinMing6.github.io',
+        link: 'https://github.com/Jinming6/Jinming6.github.io',
       },
     ],
     search: {
@@ -77,8 +80,13 @@ export default defineConfig({
       },
     },
     footer: {
-      copyright: 'Copyright © 2023-present Jinming',
+      copyright: 'Copyright © 2023-present Jinming6',
     },
   },
   lastUpdated: true,
+  vite: {
+    optimizeDeps: {
+      include: ['three'],
+    },
+  },
 });

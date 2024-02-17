@@ -4,6 +4,6 @@ export const core = [
     name: 'Jinming6',
     title: 'Creator',
     desc: 'response965@163.com',
-    links: [{ icon: 'github', link: 'https://github.com/JinMing6' }],
+    links: [{ icon: 'github', link: 'https://github.com/Jinming6' }],
   },
 ];
