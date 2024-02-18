@@ -359,3 +359,29 @@ const result = splitIntoFragments({
 //   ],
 // ];
 ```
+
+### getSortNo
+
+获取序号值
+
+- 语法
+
+`getSortNo(row)`
+
+- 参数
+
+| 名称 | 类型   | 必填 | 描述   |
+| ---- | ------ | ---- | ------ |
+| row  | Object | 是   | 行数据 |
+
+- 示例
+
+```js
+import { getSortNo } from '@jinming6/merge-helper';
+```
+
+```html
+<el-table-column label="序号" width="80">
+  <template #default="{ row }"> {{ getSortNo(row) }} </template>
+</el-table-column>
+```
