@@ -82,6 +82,8 @@ export default defineConfig({
     footer: {
       copyright: 'Copyright © 2023-present Jinming6',
     },
+    sidebarMenuLabel: '菜单',
+    returnToTopLabel: '返回顶部',
   },
   lastUpdated: true,
   vite: {

@@ -1,27 +1,28 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, onDeactivated } from 'vue';
 import { Scene } from './scene';
+import WebGL from 'three/addons/capabilities/WebGL.js';
 
 const container = ref();
 const scene = ref();
+const supportWebGL = WebGL.isWebGLAvailable();
 
 onMounted(() => {
-  scene.value = new Scene({
-    el: container.value,
-    parentElement: container.value.parentElement,
-  });
+  if (supportWebGL) {
+    scene.value = new Scene({
+      el: container.value,
+      parentElement: container.value.parentElement,
+    });
+  }
 });
 onBeforeUnmount(() => {
-  console.log('onBeforeUnmount');
-  scene.value.destroy();
-});
-onDeactivated(() => {
-  console.log('onDeactivated');
+  scene.value?.destroy();
 });
 </script>
 
 <template>
-  <div ref="container"></div>
+  <div v-if="supportWebGL" ref="container"></div>
+  <div v-else>WebGL is not available</div>
 </template>
 
 <style lang="scss" scoped>
