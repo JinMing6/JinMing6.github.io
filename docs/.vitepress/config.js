@@ -84,6 +84,9 @@ export default defineConfig({
     },
     sidebarMenuLabel: '菜单',
     returnToTopLabel: '返回顶部',
+    outline: {
+      label: '在此页',
+    },
   },
   lastUpdated: true,
   vite: {
