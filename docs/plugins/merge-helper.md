@@ -385,3 +385,7 @@ import { getSortNo } from '@jinming6/merge-helper';
   <template #default="{ row }"> {{ getSortNo(row) }} </template>
 </el-table-column>
 ```
+
+## 结语
+
+😊 如果 [@jinming6/merge-helper](https://github.com/Jinming6/merge-helper) 对您有所帮助的话，可以点个 Star✨ 哦。
