@@ -49,9 +49,12 @@ $ npm i @jinming6/merge-helper
 
 ### 合并 " 行 "
 
-1. 获取表格数据后，进行合并计算
+- 效果
+
+- 代码
 
 ```js
+// 1. 获取表格数据后，进行合并计算
 import { getMergedData, Mode, SORT_NO_KEY } from '@jinming6/merge-helper';
 
 async function getTableData() {
@@ -79,11 +82,8 @@ async function getTableData() {
   // 这里是计算完毕后的数据
   const mergedData = getMergedData(options);
 }
-```
 
-2. 表格的合并函数处理
-
-```js
+// 2. 表格的合并函数处理
 import { getFieldSpan } from '@jinming6/merge-helper';
 
 function spanMethod({ row, column }) {
@@ -149,11 +149,11 @@ const mergedData = cellMerger.getMergedData();
 
 - 参数
 
-| 名称   | 类型   | 值  | 描述       |
-| ------ | ------ | --- | ---------- |
-| Row    | Number | 0   | 合并行     |
-| Col    | Number | 1   | 合并列     |
-| RowCol | Number | 2   | 合并行和列 |
+| 名称       | 类型       | 值    | 描述                    |
+| ---------- | ---------- | ----- | ----------------------- |
+| Row        | Number     | 0     | 合并行                  |
+| Col        | Number     | 1     | 合并列                  |
+| ~~RowCol~~ | ~~Number~~ | ~~2~~ | ~~合并行和列 (已弃用)~~ |
 
 - 示例
 
