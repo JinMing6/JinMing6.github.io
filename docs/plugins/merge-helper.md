@@ -14,10 +14,6 @@ outline: deep
 
 ![capture-1710119346804.png](https://s2.loli.net/2024/03/11/Fb6mMay49HWjrke.png)
 
-## 目录
-
-[[toc]]
-
 ## 特性
 
 - [x] 合并`行`、`列`
