@@ -12,7 +12,7 @@ outline: deep
 
 ## 效果
 
-![截屏2024-01-07 23.44.15.png](https://s2.loli.net/2024/01/07/rqlRbZgUt6TD3xk.png)
+![capture-1710119346804.png](https://s2.loli.net/2024/03/11/Fb6mMay49HWjrke.png)
 
 ## 目录
 
