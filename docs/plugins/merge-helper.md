@@ -1,5 +1,9 @@
+---
+outline: deep
+---
+
 <script lang="ts" setup>
-    import MergeRow from '../components/MergeRow.vue'
+  import MergeRow from '../components/MergeRow.vue'
 </script>
 
 # merge-helper
@@ -51,45 +55,121 @@ $ npm i @jinming6/merge-helper
 
 - 效果
 
+![capture-1710119346804.png](https://s2.loli.net/2024/03/11/Fb6mMay49HWjrke.png)
+
 - 代码
 
 ```js
-// 1. 获取表格数据后，进行合并计算
-import { getMergedData, Mode, SORT_NO_KEY } from '@jinming6/merge-helper';
+import { getMergedData, Mode, getFieldSpan } from '@jinming6/merge-helper';
 
-async function getTableData() {
-  const dataSource = [
-    /* 获取到的表格数据... */
-  ];
-  const mergeFields = [
-    {
-      field: 'province',
-      callback(curItem, nextItem) {
-        // 这里是自定义逻辑
-        return (
-          curItem.name === nextItem.name &&
-          curItem.province === nextItem.province
-        );
-      },
+const dataSource = [
+  {
+    id: 0,
+    date: '2024-03-10',
+    name: '张三',
+    address: '山东省青岛市',
+  },
+  {
+    id: 1,
+    date: '2024-03-11',
+    name: '张三',
+    address: '张三',
+  },
+  {
+    id: 2,
+    date: '2024-03-12',
+    name: '张三',
+    address: '山东省青岛市',
+  },
+  {
+    id: 3,
+    date: '2024-03-13',
+    name: '张三',
+    address: '山东省青岛市',
+  },
+];
+const mergeFields = [
+  {
+    field: 'name',
+    callback(curItem, nextItem) {
+      // 这里是自定义逻辑
+      return curItem.name === nextItem.name;
     },
-  ];
-  const options = {
-    mode: Mode.Row,
-    dataSource,
-    mergeFields,
-    genSort: true, // 生成合并后的序号
-  };
-  // 这里是计算完毕后的数据
-  const mergedData = getMergedData(options);
-}
-
-// 2. 表格的合并函数处理
-import { getFieldSpan } from '@jinming6/merge-helper';
-
+  },
+  'address',
+  'date',
+];
+const options = {
+  mode: Mode.Row,
+  dataSource,
+  mergeFields,
+  genSort: true,
+};
+// 这里是计算完毕后的数据
+const mergedData = getMergedData(options);
+// 处理合并的函数
 function spanMethod({ row, column }) {
   // 这里会输出 { rowspan: n, colspan: n }，n就是经过计算后，得到的值。
   return getFieldSpan(row, column.property);
 }
+```
+
+### 合并 " 列 "
+
+- 效果
+
+![capture-1710119377249.png](https://s2.loli.net/2024/03/11/Tdqvt7L8cOiVjPK.png)
+
+- 代码
+
+```js
+import { getMergedData, Mode, getFieldSpan } from '@jinming6/merge-helper';
+
+const columns = [
+  { prop: 'name', label: '姓名' },
+  { prop: 'address', label: '地址' },
+  { prop: 'date', label: '日期' },
+];
+const dataSource = [
+  {
+    id: 0,
+    date: '2024-03-10',
+    name: '张三',
+    address: '山东省青岛市',
+  },
+  {
+    id: 1,
+    date: '2024-03-11',
+    name: '张三',
+    address: '张三',
+  },
+  {
+    id: 2,
+    date: '2024-03-12',
+    name: '张三',
+    address: '山东省青岛市',
+  },
+  {
+    id: 3,
+    date: '2024-03-13',
+    name: '张三',
+    address: '山东省青岛市',
+  },
+];
+const options = {
+  mode: Mode.Col, // 合并列模式
+  dataSource,
+  mergeFields: columns.map((item) => item.prop), // 必须传入全部列的prop
+};
+// 这里是计算完毕后的数据
+const mergedData = getMergedData(options);
+// 处理合并的函数
+const spanMethod = ({ row, column, columnIndex }) => {
+  if (columnIndex === 0) {
+    return { rowspan: 1, colspan: 1 };
+  }
+  return getFieldSpan(row, column.property);
+};
 ```
 
 ## API
@@ -165,6 +245,8 @@ const mode = Mode.Row;
 
 ### mergeFields
 
+在进行“列”合并时，必须传入全部列的 prop。
+
 - 参数
 
 | 名称     | 类型     | 必填 | 描述                         |
@@ -189,6 +271,8 @@ const mergeFields = [
 ```
 
 ### columns
+
+定义列数组，一般在“列”合并中使用。
 
 - 参数
 
@@ -362,7 +446,7 @@ const result = splitIntoFragments({
 
 ### getSortNo
 
-获取序号值
+获取序号值，在“行”合并时使用。
 
 - 语法
 
@@ -388,4 +472,4 @@ import { getSortNo } from '@jinming6/merge-helper';
 
 ## 结语
 
-😊 如果 [@jinming6/merge-helper](https://github.com/Jinming6/merge-helper) 对您有所帮助的话，可以点个 Star✨ 哦。
+如果 [@jinming6/merge-helper](https://github.com/Jinming6/merge-helper) 对您有所帮助的话，可以点个 [Star](https://github.com/Jinming6/merge-helper) 哦。
