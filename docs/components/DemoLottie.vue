@@ -1,18 +1,18 @@
 <script setup>
-import '@lottiefiles/lottie-player';
+import { DotLottieVue } from '@lottiefiles/dotlottie-vue';
 </script>
 
 <template>
   <div>
-    <lottie-player
+    <DotLottieVue
       autoplay
       controls
       loop
       mode="normal"
       src="/Animation - 1710222853150.json"
-      style="width: 320px"
+      style="height: 320px; width: 320px"
     >
-    </lottie-player>
+    </DotLottieVue>
   </div>
 </template>
 

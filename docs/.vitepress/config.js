@@ -98,11 +98,4 @@ export default defineConfig({
       include: ['three'],
     },
   },
-  vue: {
-    template: {
-      compilerOptions: {
-        isCustomElement: (tag) => tag.startsWith('lottie-player'),
-      },
-    },
-  },
 });
