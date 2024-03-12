@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@lottiefiles/dotlottie-vue": "^0.1.8",
+    "lottie-web": "^5.12.2",
     "three": "^0.161.0"
   }
 }

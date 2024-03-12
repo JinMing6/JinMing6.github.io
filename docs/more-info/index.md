@@ -14,9 +14,6 @@ import { core } from '../_data/team'
 </script>
 
 <VPTeamPage>
-  <VPTeamPageTitle>
-    <template #title>了解更多</template>
-  </VPTeamPageTitle>
   <VPTeamPageSection>
     <template #title>关于作者</template>
     <template #members>

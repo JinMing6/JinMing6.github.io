@@ -1,13 +1,26 @@
 <script setup>
-import { DotLottieVue } from '@lottiefiles/dotlottie-vue';
+import { ref, onMounted } from 'vue';
+import lottie from 'lottie-web';
 const src = new URL('./Animation-1710222853150.json', import.meta.url).href;
+const container = ref();
+onMounted(() => {
+  lottie.loadAnimation({
+    container: container.value,
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: src,
+  });
+});
 </script>
 
 <template>
-  <div>
-    <DotLottieVue autoplay loop :src="src" style="height: 320px; width: 320px">
-    </DotLottieVue>
-  </div>
+  <div ref="container" class="container"></div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.container {
+  width: 320px;
+  height: 320px;
+}
+</style>
