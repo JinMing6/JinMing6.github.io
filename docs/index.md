@@ -5,6 +5,8 @@ layout: home
 hero:
   name: 'Jinming6'
   tagline: '个人博客'
+  image:
+    src: /hero.svg
   actions:
     - theme: brand
       text: 开始阅读

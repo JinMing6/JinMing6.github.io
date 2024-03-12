@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@lottiefiles/lottie-player':
+    specifier: ^2.0.4
+    version: 2.0.4
   three:
     specifier: ^0.161.0
     version: 0.161.0
@@ -800,6 +803,35 @@ packages:
       }
     dev: true
 
+  /@lit-labs/ssr-dom-shim@1.2.0:
+    resolution:
+      {
+        integrity: sha512-yWJKmpGE6lUURKAaIltoPIE/wrbY3TEkqQt+X0m+7fQNnAv0keydnYvbiJFP1PnMhizmIWRWOG5KLhYyc/xl+g==,
+      }
+    dev: false
+
+  /@lit/reactive-element@1.6.3:
+    resolution:
+      {
+        integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==,
+      }
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.2.0
+    dev: false
+
+  /@lottiefiles/lottie-player@2.0.4:
+    resolution:
+      {
+        integrity: sha512-OU3HxAt7noWr+kzf59paS7/f4+IT1EupJIsf4h3RxsbljDaRtCunanIjchprNFYHdG+SobnyxwWKtvTDxjI5jg==,
+      }
+    dependencies:
+      '@types/pako': 1.0.7
+      lit: 2.8.0
+      lottie-web: 5.12.2
+      pako: 2.1.0
+      resize-observer-polyfill: 1.5.1
+    dev: false
+
   /@nodelib/fs.scandir@2.1.5:
     resolution:
       {
@@ -1040,6 +1072,20 @@ packages:
     dependencies:
       undici-types: 5.26.5
     dev: true
+
+  /@types/pako@1.0.7:
+    resolution:
+      {
+        integrity: sha512-YBtzT2ztNF6R/9+UXj2wTGFnC9NklAnASt3sC0h2m1bbH7G6FyBIkt4AN8ThZpNfxUo1b2iMVO0UawiJymEt8A==,
+      }
+    dev: false
+
+  /@types/trusted-types@2.0.7:
+    resolution:
+      {
+        integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==,
+      }
+    dev: false
 
   /@types/web-bluetooth@0.0.20:
     resolution:
@@ -3499,6 +3545,37 @@ packages:
       wrap-ansi: 9.0.0
     dev: true
 
+  /lit-element@3.3.3:
+    resolution:
+      {
+        integrity: sha512-XbeRxmTHubXENkV4h8RIPyr8lXc+Ff28rkcQzw3G6up2xg5E8Zu1IgOWIwBLEQsu3cOVFqdYwiVi0hv0SlpqUA==,
+      }
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.2.0
+      '@lit/reactive-element': 1.6.3
+      lit-html: 2.8.0
+    dev: false
+
+  /lit-html@2.8.0:
+    resolution:
+      {
+        integrity: sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==,
+      }
+    dependencies:
+      '@types/trusted-types': 2.0.7
+    dev: false
+
+  /lit@2.8.0:
+    resolution:
+      {
+        integrity: sha512-4Sc3OFX9QHOJaHbmTMk28SYgVxLN3ePDjg7hofEft2zWlehFL3LiAuapWc4U/kYwMYJSh2hTCPZ6/LIC7ii0MA==,
+      }
+    dependencies:
+      '@lit/reactive-element': 1.6.3
+      lit-element: 3.3.3
+      lit-html: 2.8.0
+    dev: false
+
   /locate-path@6.0.0:
     resolution:
       {
@@ -3589,6 +3666,13 @@ packages:
       }
     engines: { node: '>=0.10.0' }
     dev: true
+
+  /lottie-web@5.12.2:
+    resolution:
+      {
+        integrity: sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==,
+      }
+    dev: false
 
   /lru-cache@6.0.0:
     resolution:
@@ -3904,6 +3988,13 @@ packages:
       p-limit: 3.1.0
     dev: true
 
+  /pako@2.1.0:
+    resolution:
+      {
+        integrity: sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug==,
+      }
+    dev: false
+
   /parent-module@1.0.1:
     resolution:
       {
@@ -4111,6 +4202,13 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /resize-observer-polyfill@1.5.1:
+    resolution:
+      {
+        integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==,
+      }
+    dev: false
 
   /resolve-dir@1.0.1:
     resolution:

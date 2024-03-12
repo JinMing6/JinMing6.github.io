@@ -38,6 +38,7 @@
     "**/*": "prettier --write --ignore-unknown --allow-empty"
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^2.0.4",
     "three": "^0.161.0"
   }
 }

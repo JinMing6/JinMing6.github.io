@@ -42,6 +42,10 @@ export default defineConfig({
               text: 'three.js 示例',
               link: '/example/three-demo',
             },
+            {
+              text: 'lottie 示例',
+              link: '/example/lottie-demo',
+            },
           ],
         },
       ],
@@ -92,6 +96,13 @@ export default defineConfig({
   vite: {
     optimizeDeps: {
       include: ['three'],
+    },
+  },
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => tag.startsWith('lottie-player'),
+      },
     },
   },
 });
