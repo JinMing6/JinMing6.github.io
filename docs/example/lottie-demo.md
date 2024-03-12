@@ -1,5 +1,5 @@
 <script setup>
-  import DemoLottie from '../components/DemoLottie.vue'
+  import DemoLottie from '../components/DemoLottie/DemoLottie.vue'
 </script>
 
 # lottie 示例
