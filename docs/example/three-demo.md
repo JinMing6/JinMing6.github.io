@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 <script setup>
   import BlackHole from '../components/BlackHole/index.vue'
 </script>
@@ -12,6 +16,16 @@
 首次加载模型较慢，请耐心等待。
 :::
 
-> 效果
+## 效果展示
 
 <BlackHole />
+
+## 代码实现
+
+### index.vue
+
+<<< ../components/BlackHole/index.vue
+
+### scene.js
+
+<<< ../components/BlackHole/scene.js
