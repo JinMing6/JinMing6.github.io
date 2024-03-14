@@ -8,7 +8,7 @@ outline: deep
 
 # merge-helper
 
-轻松处理单元格的合并
+一款轻松`处理单元格的合并`插件。
 
 ## 效果
 
@@ -16,9 +16,9 @@ outline: deep
 
 ## 特性
 
-- [x] 合并`行`、`列`
-- [x] 生成`合并`后的序号
-- [x] 数据`分段`
+- ✅ 合并`行`、`列`
+- ✅ 生成`合并`后的序号
+- ✅ 数据`分段`
 
 ## 安装
 
@@ -26,7 +26,7 @@ outline: deep
 使用前，请安装 [lodash](https://lodash.com)
 :::
 
-> 包管理工具
+### 包管理工具
 
 ```bash
 # pnpm
@@ -39,7 +39,7 @@ $ yarn add @jinming6/merge-helper
 $ npm i @jinming6/merge-helper
 ```
 
-> CDN
+### CDN
 
 ```html
 <script src="https://unpkg.com/@jinming6/merge-helper/dist/mergeHelper.min.js"></script>
@@ -473,4 +473,24 @@ import { getSortNo } from '@jinming6/merge-helper';
 
 ## 结语
 
-如果 [@jinming6/merge-helper](https://github.com/Jinming6/merge-helper) 对您有所帮助的话，可以点个 [Star](https://github.com/Jinming6/merge-helper) 哦。
+如果 [@jinming6/merge-helper](https://github.com/Jinming6/merge-helper) 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/merge-helper) 哦。
+
+## FAQ
+
+### 按分组来`合并行`出现错版的情况？
+
+1. 给需要合并的分组添加统一的`groupId`来区分是否为一组。
+2. `mergeFields`自定义合并逻辑，加上前置判断`groupId`。
+
+```js
+const mergeFields = [
+  {
+    field: 'name',
+    callback(curItem, nextItem) {
+      return (
+        curItem.groupId === nextItem.groupId && curItem.name === nextItem.name
+      );
+    },
+  },
+];
+```
