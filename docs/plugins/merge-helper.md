@@ -172,6 +172,10 @@ const spanMethod = ({ row, column, columnIndex }) => {
 
 ### CellMerger
 
+- 语法
+
+`new CellMerger(options)`
+
 - 参数
 
 | 名称        | 类型                  | 必填 | 描述                                                    |
