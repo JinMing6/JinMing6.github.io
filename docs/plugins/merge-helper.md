@@ -182,6 +182,7 @@ const spanMethod = ({ row, column, columnIndex }) => {
 | sortBy      | String                | 否   | 按照该字段的纬度进行排序（默认取 mergeFields 的第一项） |
 | mode        | [Number](#mode)       | 是   | 合并模式                                                |
 | columns     | [Array](#columns)     | 否   | 列头                                                    |
+| reCalc      | Boolean               | 否   | 是否重新计算合并，默认 false                            |
 
 - 方法
 
