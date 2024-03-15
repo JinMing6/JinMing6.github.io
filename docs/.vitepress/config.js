@@ -46,6 +46,10 @@ export default defineConfig({
               text: 'lottie 示例',
               link: '/example/lottie-demo',
             },
+            {
+              text: 'PixiJs 示例',
+              link: '/example/pixi-demo',
+            },
           ],
         },
       ],

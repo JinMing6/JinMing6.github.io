@@ -38,7 +38,9 @@
     "**/*": "prettier --write --ignore-unknown --allow-empty"
   },
   "dependencies": {
+    "@pixi/gif": "^3.0.0",
     "lottie-web": "^5.12.2",
+    "pixi.js": "^8.0.2",
     "three": "^0.161.0"
   }
 }
