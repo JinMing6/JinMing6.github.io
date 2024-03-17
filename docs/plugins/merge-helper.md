@@ -101,7 +101,7 @@ const options = {
   mergeFields,
   genSort: true,
 };
-// 这里是计算完毕后的数据
+// 这里是计算完毕后的数据，赋值给表格即可
 const mergedData = getMergedData(options);
 // 处理合并的函数
 function spanMethod({ row, column }) {
@@ -157,7 +157,7 @@ const options = {
   dataSource,
   mergeFields: columns.map((item) => item.prop), // 必须传入全部列的prop
 };
-// 这里是计算完毕后的数据
+// 这里是计算完毕后的数据，赋值给表格即可
 const mergedData = getMergedData(options);
 // 处理合并的函数
 const spanMethod = ({ row, column, columnIndex }) => {
