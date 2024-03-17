@@ -475,6 +475,16 @@ import { getSortNo } from '@jinming6/merge-helper';
 
 如果 [@jinming6/merge-helper](https://github.com/Jinming6/merge-helper) 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/merge-helper) 哦。
 
+## Star History
+
+<a href="https://star-history.com/#@jinming6/merge-helper&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=@jinming6/merge-helper&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=@jinming6/merge-helper&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=@jinming6/merge-helper&type=Date" />
+  </picture>
+</a>
+
 ## FAQ
 
 ### 按分组来`合并行`出现错版的情况？
