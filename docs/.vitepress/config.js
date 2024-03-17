@@ -50,6 +50,10 @@ export default defineConfig({
               text: 'PixiJs 示例',
               link: '/example/pixi-demo',
             },
+            {
+              text: 'Card 示例',
+              link: '/example/card-demo',
+            },
           ],
         },
       ],
