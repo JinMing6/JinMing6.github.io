@@ -54,6 +54,10 @@ export default defineConfig({
               text: 'Card 示例',
               link: '/example/card-demo',
             },
+            {
+              text: '图片转 webp',
+              link: '/example/webp-demo',
+            },
           ],
         },
       ],
