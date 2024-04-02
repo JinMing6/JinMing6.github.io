@@ -58,6 +58,10 @@ export default defineConfig({
               text: '图片转 webp',
               link: '/example/webp-demo',
             },
+            {
+              text: '链接时效',
+              link: '/example/temp-link',
+            },
           ],
         },
       ],
