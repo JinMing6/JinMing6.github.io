@@ -62,6 +62,10 @@ export default defineConfig({
               text: '链接时效',
               link: '/example/temp-link',
             },
+            {
+              text: '懒加载',
+              link: '/example/lazy-load',
+            },
           ],
         },
       ],
