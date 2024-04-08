@@ -66,6 +66,10 @@ export default defineConfig({
               text: '懒加载',
               link: '/example/lazy-load',
             },
+            {
+              text: 'Excel 示例',
+              link: '/example/excel-demo',
+            },
           ],
         },
       ],
