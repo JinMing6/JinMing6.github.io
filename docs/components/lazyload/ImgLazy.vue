@@ -38,14 +38,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <ul class="imgList">
-    <li v-for="item in data" class="imgItem" :title="item.title">
-      <img ref="imgRefs" :alt="item.title" :data-src="item.src" />
-    </li>
-  </ul>
+  <div class="imgListWrap">
+    <ul class="imgList">
+      <li v-for="item in data" class="imgItem" :title="item.title">
+        <img ref="imgRefs" :alt="item.title" :data-src="item.src" />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.imgListWrap {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 12px 0;
+}
+
 .imgList {
   list-style: none;
   display: flex;
@@ -53,8 +61,6 @@ onMounted(() => {
   gap: 10px;
   height: 500px;
   overflow: auto;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 10px;
   padding: 0;
   justify-content: center;
 }
