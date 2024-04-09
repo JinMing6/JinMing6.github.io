@@ -15,3 +15,9 @@ outline: deep
 ## ExcelDemo.vue
 
 <<< ../components/ExcelDemo/ExcelDemo.vue
+
+## worker.js
+
+采用 [Web Worker](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API) 来解决生成 Excel 时的页面渲染阻塞问题。
+
+<<< ../components/ExcelDemo/worker.js

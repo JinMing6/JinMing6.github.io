@@ -2,69 +2,95 @@
 import { ref } from 'vue';
 import ExcelJS from 'exceljs';
 
+const loading = ref(false);
 const fileInput = ref();
+const workerUrl = new URL('./worker.js', import.meta.url);
+const myWorker = new Worker(workerUrl, { type: 'module' });
+myWorker.onmessage = (e) => {
+  const blob = e.data;
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'newTemplate.xlsx';
+  a.click();
+  URL.revokeObjectURL(url);
+  loading.value = false;
+};
 
 const handleChange = (e) => {
   const file = e.target.files[0];
+  loading.value = true;
   const reader = new FileReader();
   reader.onload = (e) => {
-    const data = new Uint8Array(e.target.result);
-    const workbook = new ExcelJS.Workbook();
-    workbook.xlsx.load(data).then(async (workbook) => {
-      const worksheet = workbook.getWorksheet(1);
-      const lastColNumber = worksheet.columnCount;
-      const preCol = worksheet.getColumn(lastColNumber);
-      const newCol = worksheet.getColumn(lastColNumber + 1);
-      newCol.values = [null, '地址'];
-      newCol.width = preCol.width;
-      newCol.style = preCol.style;
-      worksheet.dataValidations.add(
-        `${newCol.letter}3:${newCol.letter}999999`,
-        {
-          type: 'list',
-          allowBlank: true,
-          formulae: ['"青岛市,杭州市,上海市"'],
-          showErrorMessage: true,
-        }
-      );
-
-      // 给单元格添加样式
-      const row = worksheet.getRow(2);
-      const newCell = row.getCell(lastColNumber + 1);
-      const preCell = row.getCell(lastColNumber);
-      newCell.style = preCell.style;
-
-      // 合并列头
-      worksheet.unMergeCells('A1');
-      worksheet.mergeCells(`A1:${newCol.letter}1`);
-
-      // 生成文件
-      const buffer = await workbook.xlsx.writeBuffer();
-      const blob = new Blob([buffer], {
-        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'newTemplate.xlsx';
-      a.click();
-      URL.revokeObjectURL(url);
-    });
+    myWorker.postMessage(e.target.result);
   };
   reader.readAsArrayBuffer(file);
+};
+
+const openUploadInput = () => {
+  fileInput.value.value = '';
+  fileInput.value.click();
 };
 </script>
 
 <template>
-  <p>
-    <a
-      href="../../public/excel/template.xlsx"
-      target="_blank"
-      download="template.xlsx"
-      >下载模板</a
-    >
-  </p>
-  <input type="file" ref="fileInput" @change="handleChange" />
+  <div class="excelDemoWrap">
+    <div class="loaderWrap" v-if="loading">
+      <div class="loader"></div>
+    </div>
+    <p>
+      <a
+        class="downloadLink"
+        href="../../public/excel/template.xlsx"
+        target="_blank"
+        download="template.xlsx"
+        >下载模板</a
+      >
+      <a href="javascript:void(0)" @click="openUploadInput">上传Excel</a>
+    </p>
+    <input id="fileInput" type="file" ref="fileInput" @change="handleChange" />
+  </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.excelDemoWrap {
+  position: relative;
+}
+
+.loaderWrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.loader {
+  height: 50px;
+  aspect-ratio: 2;
+  border: 10px solid #000;
+  box-sizing: border-box;
+  background: radial-gradient(farthest-side, #fff 98%, #0000) left/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) left/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) center/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) right/20px 20px, #000;
+  background-repeat: no-repeat;
+  filter: blur(4px) contrast(10);
+  animation: l14 1s infinite;
+}
+
+@keyframes l14 {
+  100% {
+    background-position: right, left, center, right;
+  }
+}
+
+#fileInput {
+  display: none;
+}
+
+.downloadLink {
+  margin-right: 10px;
+}
+</style>
