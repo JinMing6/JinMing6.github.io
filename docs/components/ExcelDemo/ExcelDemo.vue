@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import ExcelJS from 'exceljs';
 
 const loading = ref(false);
 const fileInput = ref();

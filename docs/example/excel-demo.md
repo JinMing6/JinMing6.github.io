@@ -10,7 +10,9 @@ outline: deep
 
 下载模板后，进行上传，系统便会往模版中新添加一列，并且下载一个新的模板文件。
 
-<ExcelDemo />
+<ClientOnly>
+  <ExcelDemo />
+</ClientOnly>
 
 ## ExcelDemo.vue
 
