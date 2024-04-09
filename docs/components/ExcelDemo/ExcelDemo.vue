@@ -41,7 +41,7 @@ const openUploadInput = () => {
     <p>
       <a
         class="downloadLink"
-        href="../../public/excel/template.xlsx"
+        href="/excel/template.xlsx"
         target="_blank"
         download="template.xlsx"
         >下载模板</a
