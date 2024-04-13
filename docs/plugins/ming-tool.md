@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# @jinming6/ming-tool
+# ming-tool
 
 🔧 前端工具库
 
