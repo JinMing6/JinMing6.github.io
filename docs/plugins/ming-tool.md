@@ -48,6 +48,12 @@ $ pnpm add @jinming6/ming-tool -S
 | dataSource | `Array`  | -                                    | 数据源       |
 | fieldsName | `Object` | `{ label: 'label', value: 'value' }` | 选项字段配置 |
 
+- 方法
+
+| 名称   | 参数      | 返回 | 描述       |
+| ------ | --------- | ---- | ---------- |
+| update | `options` | -    | 新参数配置 |
+
 - 示例
 
 ```js
@@ -68,15 +74,21 @@ const dataSource = [
   },
 ];
 
+/* 初始数据 */
 const option = new Option({
   dataSource,
 });
-
 // 下拉选项 (一般用于下拉筛选项)
 // option.options
-
 // 名称映射对象 (value映射为label)
 // option.labelMap
+
+/* 更新数据 */
+dataSource.push({
+  label: '其他'，
+  value: 3
+})
+option.update({dataSource})
 ```
 
 ### 空值替换
