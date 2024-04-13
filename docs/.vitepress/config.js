@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   lang: 'zh-CN',
   title: 'Jinming6',
-  description: '个人博客',
+  description: '大道泛兮，其可左右。',
   appearance: 'force-dark',
   themeConfig: {
     nav: [

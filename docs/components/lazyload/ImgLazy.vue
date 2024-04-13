@@ -8,6 +8,7 @@ const getData = () => {
       id: index,
       src: `https://picsum.photos/200/300?random=${index}`,
       title: `图片${index}`,
+      loading: true,
     };
   });
   data.value = newData;
@@ -29,6 +30,11 @@ const addListener = () => {
     intersectionObserver.observe(item);
   });
 };
+
+const imgLoad = (ev, item) => {
+  item.loading = false;
+};
+
 onMounted(() => {
   getData();
   setTimeout(() => {
@@ -41,7 +47,15 @@ onMounted(() => {
   <div class="imgListWrap">
     <ul class="imgList">
       <li v-for="item in data" class="imgItem" :title="item.title">
-        <img ref="imgRefs" :alt="item.title" :data-src="item.src" />
+        <img
+          ref="imgRefs"
+          :alt="item.title"
+          :data-src="item.src"
+          @load="imgLoad($event, item)"
+        />
+        <div class="loaderWrap" v-if="item.loading">
+          <div class="loader"></div>
+        </div>
       </li>
     </ul>
   </div>
@@ -87,5 +101,37 @@ onMounted(() => {
   font-size: 20px;
   font-weight: bold;
   backdrop-filter: blur(4px);
+}
+
+.loaderWrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  z-index: 9;
+}
+
+.loader {
+  width: 80px;
+  aspect-ratio: 1;
+  border: 10px solid #000;
+  box-sizing: border-box;
+  background: radial-gradient(farthest-side, #fff 98%, #0000) 50%/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) 50%/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) 50%/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) 50%/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) 50%/20px 20px,
+    linear-gradient(#fff 0 0) 50%/100% 10px,
+    linear-gradient(#fff 0 0) 50%/10px 100%, #000;
+  background-repeat: no-repeat;
+  filter: blur(4px) contrast(10);
+  animation: l13 0.8s infinite;
+}
+@keyframes l13 {
+  100% {
+    background-position: 50% -20px, -20px 50%, 60px 50%, 50% 60px, 50%, 50%, 50%;
+  }
 }
 </style>

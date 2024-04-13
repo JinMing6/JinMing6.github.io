@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: 'Jinming6'
-  tagline: '个人博客'
+  tagline: '大道泛兮，其可左右。'
   image:
     src: /hero.svg
   actions:
