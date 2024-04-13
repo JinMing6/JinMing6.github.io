@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# ming-tool
+# @jinming6/ming-tool
 
 🔧 前端工具库
 
@@ -18,15 +18,15 @@ outline: deep
 ::: code-group
 
 ```bash [NPM]
-$ npm i ming-tool -S
+$ npm i @jinming6/ming-tool -S
 ```
 
 ```bash [Yarn]
-$ yarn add ming-tool -S
+$ yarn add @jinming6/ming-tool -S
 ```
 
 ```bash [PNPM]
-$ pnpm add ming-tool -S
+$ pnpm add @jinming6/ming-tool -S
 ```
 
 :::
@@ -51,7 +51,7 @@ $ pnpm add ming-tool -S
 - 示例
 
 ```js
-import { Option } from 'ming-tool';
+import { Option } from '@jinming6/ming-tool';
 
 const dataSource = [
   {
@@ -95,7 +95,7 @@ const option = new Option({
 - 示例
 
 ```js
-import { replaceEmpty } from 'ming-tool';
+import { replaceEmpty } from '@jinming6/ming-tool';
 
 console.log(replaceEmpty(null)); // --
 console.log(replaceEmpty(undefined)); // --
@@ -121,7 +121,7 @@ console.log(replaceEmpty(false)); // false
 - 示例
 
 ```js
-import { downloadArrayBuffer } from 'ming-tool';
+import { downloadArrayBuffer } from '@jinming6/ming-tool';
 
 const str = '大道泛兮，其可左右。';
 const encoder = new TextEncoder();
@@ -139,7 +139,7 @@ downloadArrayBuffer(buffer, 'example.txt');
 - 示例
 
 ```js
-import { getRandomRg, getRandomHex } from 'ming-tool';
+import { getRandomRg, getRandomHex } from '@jinming6/ming-tool';
 
 console.log(getRandomRg()); // 获取一个随机的rgb色值，例：rgb(0, 0, 0)
 console.log(getRandomHex()); // 获取一个随机的hex色值，例：#000000
@@ -147,4 +147,4 @@ console.log(getRandomHex()); // 获取一个随机的hex色值，例：#000000
 
 ## 结语
 
-如果 `ming-tool` 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/ming-tool) 哦。
+如果 `@jinming6/ming-tool` 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/ming-tool) 哦。
