@@ -26,24 +26,21 @@ outline: deep
 使用前，请安装 [lodash](https://lodash.com)
 :::
 
-### 包管理工具
+::: code-group
 
-```bash
-# pnpm
-$ pnpm add @jinming6/merge-helper
-
-# yarn
-$ yarn add @jinming6/merge-helper
-
-# npm
-$ npm i @jinming6/merge-helper
+```bash [NPM]
+$ npm i @jinming6/merge-helper -S
 ```
 
-### CDN
-
-```html
-<script src="https://unpkg.com/@jinming6/merge-helper/dist/mergeHelper.min.js"></script>
+```bash [Yarn]
+$ yarn add @jinming6/merge-helper -S
 ```
+
+```bash [PNPM]
+$ pnpm add @jinming6/merge-helper -S
+```
+
+:::
 
 ## 快速上手
 
@@ -471,10 +468,6 @@ import { getSortNo } from '@jinming6/merge-helper';
 </el-table-column>
 ```
 
-## 结语
-
-如果 [@jinming6/merge-helper](https://github.com/Jinming6/merge-helper) 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/merge-helper) 哦。
-
 ## FAQ
 
 ### 按分组来`合并行`出现错版的情况？
@@ -494,3 +487,7 @@ const mergeFields = [
   },
 ];
 ```
+
+## 结语
+
+如果 `@jinming6/merge-helper` 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/merge-helper) 哦。

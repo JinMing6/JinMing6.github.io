@@ -19,6 +19,10 @@ export default defineConfig({
               text: 'merge-helper',
               link: '/plugins/merge-helper',
             },
+            {
+              text: 'ming-tool',
+              link: '/plugins/ming-tool',
+            },
           ],
         },
       ],
