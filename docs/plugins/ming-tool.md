@@ -74,7 +74,7 @@ const dataSource = [
   },
 ];
 
-/* 初始数据 */
+/* 1.初始数据 */
 const option = new Option({
   dataSource,
 });
@@ -83,12 +83,15 @@ const option = new Option({
 // 名称映射对象 (value映射为label)
 // option.labelMap
 
-/* 更新数据 */
+/* 2.更新数据 */
+// 添加一个对象
 dataSource.push({
   label: '其他'，
   value: 3
 })
 option.update({dataSource})
+// 清空
+option.update({dataSource: []})
 ```
 
 ### 空值替换
