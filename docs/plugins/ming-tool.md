@@ -11,7 +11,9 @@ outline: deep
 - ✅ [公共下拉选项](#公共下拉选项)
 - ✅ [空值替换](#空值替换)
 - ✅ [下载文件流](#下载文件流)
+- ✅ [根据 url 下载文件流](#根据url下载文件流)
 - ✅ [随机颜色](#随机颜色)
+- ✅ [图片转 Webp](#图片转-webp)
 
 ## 安装
 
@@ -120,7 +122,7 @@ console.log(replaceEmpty(true)); // true
 console.log(replaceEmpty(false)); // false
 ```
 
-### 下载文件流
+### 下载文件
 
 - 语法
 
@@ -149,6 +151,30 @@ uint8Array.set(encodedData);
 downloadArrayBuffer(buffer, 'example.txt');
 ```
 
+### 根据 url 下载文件
+
+- 语法
+
+`downloadFile(url, filename)`
+
+- 参数
+
+| 字段     | 类型     | 默认 | 描述     |
+| -------- | -------- | ---- | -------- |
+| url      | `String` | -    | 文件地址 |
+| filename | `String` | -    | 文件名称 |
+
+- 示例
+
+```js
+import { downloadFile } from '@jinming6/ming-tool';
+
+const url =
+  'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png';
+const filename = 'test.png';
+const result = downloadFile(url, filename);
+```
+
 ### 随机颜色
 
 - 示例
@@ -158,6 +184,30 @@ import { getRandomRg, getRandomHex } from '@jinming6/ming-tool';
 
 console.log(getRandomRg()); // 获取一个随机的rgb色值，例：rgb(0, 0, 0)
 console.log(getRandomHex()); // 获取一个随机的hex色值，例：#000000
+```
+
+### 图片转 Webp
+
+- 语法
+
+`convert2Webp(file, filename)`
+
+- 参数
+
+| 字段    | 类型           | 默认 | 描述           |
+| ------- | -------------- | ---- | -------------- |
+| file    | `File`或`Blob` | -    | 文件对象       |
+| quality | `Number`       | -    | 压缩率 `(0~1)` |
+
+- 示例
+
+```js
+import { convert2Webp, downloadArrayBuffer } from '@jinming6/ming-tool';
+
+// file是文件对象
+const webpBlob = convert2Webp(file, 0.6);
+// 下载转换后的Webp图片
+downloadArrayBuffer(webpBlob, 'example.webp');
 ```
 
 ## 结语

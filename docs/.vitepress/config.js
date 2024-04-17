@@ -126,4 +126,9 @@ export default defineConfig({
       include: ['three'],
     },
   },
+  markdown: {
+    image: {
+      lazyLoading: true,
+    },
+  },
 });
