@@ -10,8 +10,7 @@ outline: deep
 
 - ✅ [公共下拉选项](#公共下拉选项)
 - ✅ [空值替换](#空值替换)
-- ✅ [下载文件流](#下载文件流)
-- ✅ [根据 url 下载文件流](#根据url下载文件流)
+- ✅ [下载文件](#下载文件)
 - ✅ [随机颜色](#随机颜色)
 - ✅ [图片转 Webp](#图片转-webp)
 
@@ -126,54 +125,49 @@ console.log(replaceEmpty(false)); // false
 
 - 语法
 
-`downloadArrayBuffer(buffer, filename)`
+`downloadFile(options)`
 
 - 参数
 
-| 字段     | 类型          | 默认 | 描述     |
-| -------- | ------------- | ---- | -------- |
-| buffer   | `ArrayBuffer` | -    | 文件流   |
-| filename | `String`      | -    | 文件名称 |
+> options
 
-- 示例
-
-```js
-import { downloadArrayBuffer } from '@jinming6/ming-tool';
-
-const str = '大道泛兮，其可左右。';
-const encoder = new TextEncoder();
-const encodedData = encoder.encode(str);
-const buffer = new ArrayBuffer(encodedData.byteLength);
-const uint8Array = new Uint8Array(buffer);
-uint8Array.set(encodedData);
-
-// buffer一般是从接口获取的，这里是为了测试方便，所以这么写。
-downloadArrayBuffer(buffer, 'example.txt');
-```
-
-### 根据 url 下载文件
-
-- 语法
-
-`downloadFile(url, filename)`
-
-- 参数
-
-| 字段     | 类型     | 默认 | 描述     |
-| -------- | -------- | ---- | -------- |
-| url      | `String` | -    | 文件地址 |
-| filename | `String` | -    | 文件名称 |
+| 字段        | 类型          | 默认 | 描述                                     |
+| ----------- | ------------- | ---- | ---------------------------------------- |
+| inputType   | `String`      | -    | 输入类型 (` 'string'`、`'arrayBuffer' `) |
+| filename    | `String`      | -    | 文件名称                                 |
+| url         | `String`      | -    | 文件 url 地址                            |
+| arrayBuffer | `ArrayBuffer` | -    | 文件流                                   |
 
 - 示例
 
 ```js
 import { downloadFile } from '@jinming6/ming-tool';
 
-const url =
-  'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png';
+/* 根据文件流进行下载，文件流一般从接口返回(例如excel导出) */
+// const str = '大道泛兮，其可左右。';
+// const encoder = new TextEncoder();
+// const encodedData = encoder.encode(str);
+// const buffer = new ArrayBuffer(encodedData.byteLength);
+// const uint8Array = new Uint8Array(buffer);
+// uint8Array.set(encodedData);
+// downloadFile({
+//   inputType: 'arrayBuffer',
+//   arrayBuffer: buffer,
+//   filename: 'example.txt',
+// })
+
+/* 根据url进行下载 */
+const url = './demo.png';
 const filename = 'test.png';
-const result = downloadFile(url, filename);
+downloadFile({
+  inputType: 'url',
+  url,
+  filename,
+});
 ```
+
+> [!NOTE]
+> 当采用 `url 方式`时，如果是非同源地址，会导致无法下载文件（例如，只打开一个新标签页展示），建议用接口获取文件流，然后采用`文件流 方式`下载。
 
 ### 随机颜色
 
