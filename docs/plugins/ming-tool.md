@@ -17,15 +17,15 @@ outline: deep
 
 ::: code-group
 
-```bash [NPM]
+```bash [npm]
 $ npm i @jinming6/ming-tool -S
 ```
 
-```bash [Yarn]
+```bash [yarn]
 $ yarn add @jinming6/ming-tool -S
 ```
 
-```bash [PNPM]
+```bash [pnpm]
 $ pnpm add @jinming6/ming-tool -S
 ```
 

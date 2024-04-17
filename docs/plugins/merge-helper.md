@@ -28,15 +28,15 @@ outline: deep
 
 ::: code-group
 
-```bash [NPM]
+```bash [npm]
 $ npm i @jinming6/merge-helper -S
 ```
 
-```bash [Yarn]
+```bash [yarn]
 $ yarn add @jinming6/merge-helper -S
 ```
 
-```bash [PNPM]
+```bash [pnpm]
 $ pnpm add @jinming6/merge-helper -S
 ```
 
