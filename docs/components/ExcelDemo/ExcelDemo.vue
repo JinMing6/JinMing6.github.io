@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue';
+import MyWorker from './worker?worker';
 
 const loading = ref(false);
 const fileInput = ref();
-const workerUrl = new URL('./worker.js', import.meta.url);
-const myWorker = new Worker(workerUrl, { type: 'module' });
+const myWorker = new MyWorker();
 myWorker.onmessage = (e) => {
   const blob = e.data;
   const url = URL.createObjectURL(blob);
