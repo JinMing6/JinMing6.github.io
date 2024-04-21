@@ -22,10 +22,6 @@ outline: deep
 
 ## 安装
 
-::: tip
-使用前，请安装 [lodash](https://lodash.com)
-:::
-
 ::: code-group
 
 ```bash [npm]
