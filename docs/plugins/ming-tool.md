@@ -157,7 +157,7 @@ import { downloadFile } from '@jinming6/ming-tool';
 // })
 
 /* 根据url进行下载 */
-const url = './demo.png';
+const url = './demo.png'; // 或者提供一个附件资源地址
 const filename = 'test.png';
 downloadFile({
   inputType: 'url',
@@ -167,7 +167,9 @@ downloadFile({
 ```
 
 > [!NOTE]
-> 当采用 `url 方式`时，如果是非同源地址，会导致无法下载文件（例如，只打开一个新标签页展示），建议用接口获取文件流，然后采用`文件流 方式`下载。
+>
+> - 当采用 `url 方式`时，如果是非同源地址，会导致无法下载文件（例如，只打开一个新标签页展示）建议用接口获取文件流，然后采用`文件流 方式`下载。
+> - 如果是附件服务的资源地址，则正常下载（前提是，附件服务器已配置允许下载）。
 
 ### 随机颜色
 
