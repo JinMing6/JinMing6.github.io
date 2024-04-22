@@ -131,12 +131,12 @@ console.log(replaceEmpty(false)); // false
 
 > options
 
-| 字段        | 类型          | 默认 | 描述                                     |
-| ----------- | ------------- | ---- | ---------------------------------------- |
-| inputType   | `String`      | -    | 输入类型 (` 'string'`、`'arrayBuffer' `) |
-| filename    | `String`      | -    | 文件名称                                 |
-| url         | `String`      | -    | 文件 url 地址                            |
-| arrayBuffer | `ArrayBuffer` | -    | 文件流                                   |
+| 字段        | 类型          | 默认 | 描述                                  |
+| ----------- | ------------- | ---- | ------------------------------------- |
+| inputType   | `String`      | -    | 输入类型 (` 'url'`、`'arrayBuffer' `) |
+| filename    | `String`      | -    | 文件名称                              |
+| url         | `String`      | -    | 文件 url 地址                         |
+| arrayBuffer | `ArrayBuffer` | -    | 文件流                                |
 
 - 示例
 
