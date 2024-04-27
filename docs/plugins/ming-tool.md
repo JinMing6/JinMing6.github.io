@@ -13,6 +13,8 @@ outline: deep
 - ✅ [下载文件](#下载文件)
 - ✅ [随机颜色](#随机颜色)
 - ✅ [图片转 Webp](#图片转-webp)
+- ✅ [根据 url 获取文件名及后缀](#根据-url-获取文件名及后缀)
+- ✅ [浏览器兼容性提示](#浏览器兼容性提示)
 
 ## 安装
 
@@ -205,6 +207,86 @@ const webpBlob = convert2Webp(file, 0.6);
 // 下载转换后的Webp图片
 downloadArrayBuffer(webpBlob, 'example.webp');
 ```
+
+### 根据 url 获取文件名及后缀
+
+- 语法
+
+`getFilenameFromUrl(url)`
+
+- 参数
+
+| 字段 | 类型     | 默认 | 描述     |
+| ---- | -------- | ---- | -------- |
+| url  | `String` | -    | 文件链接 |
+
+- 示例
+
+```js
+import { getFilenameFromUrl } from '@jinming6/ming-tool';
+
+const url = 'https://www.baidu.com/abc.jpg';
+getFilenameFromUrl(url); // abc.jpg
+```
+
+### 浏览器兼容性提示
+
+- 语法
+
+`getFilenameFromUrl(options)`
+
+- 参数
+
+> options
+
+| 字段    | 类型            | 默认 | 描述             |
+| ------- | --------------- | ---- | ---------------- |
+| edge    | `BrowserOption` | -    | edge 版本配置    |
+| firefox | `BrowserOption` | -    | firefox 版本配置 |
+| opera   | `BrowserOption` | -    | opera 版本配置   |
+| chrome  | `BrowserOption` | -    | chrome 版本配置  |
+| safari  | `BrowserOption` | -    | safari 版本配置  |
+
+> BrowserOption
+
+| 字段         | 类型     | 默认 | 描述                                      |
+| ------------ | -------- | ---- | ----------------------------------------- |
+| minVersion   | `String` | -    | 最低版本                                  |
+| downloadLink | `String` | -    | 浏览器下载地址 (不配置，则会默认官方地址) |
+
+> 默认的 downloadLink 路径
+
+```json
+{
+  "edge": "https://www.microsoft.com/zh-cn/edge",
+  "firefox": "https://www.firefox.com.cn/",
+  "chrome": "https://www.google.cn/chrome/",
+  "opera": "https://www.opera.com/zh-cn",
+  "safari": "https://www.apple.com/cn/safari/"
+}
+```
+
+> Methods
+
+| 字段    | 默认 | 描述     |
+| ------- | ---- | -------- |
+| destroy | -    | 销毁实例 |
+
+- 示例
+
+```js
+import { Compatibility } from '@jinming6/ming-tool';
+
+// 如果当前浏览器不满足条件，则会在顶部添加一个fixed元素进行提示。
+const compatibility = new Compatibility({
+  minBrowserVersion: { chrome: { minVersion: '124' } },
+});
+
+// 销毁实例
+compatibility.destroy();
+```
+
+![1714229103261.jpg](https://s2.loli.net/2024/04/27/tkr9IHmpQRaMqos.jpg)
 
 ## 结语
 
