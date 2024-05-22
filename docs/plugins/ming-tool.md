@@ -229,7 +229,7 @@ const url = 'https://www.baidu.com/abc.jpg';
 getFilenameFromUrl(url); // abc.jpg
 ```
 
-### 浏览器兼容性提示
+### 浏览器兼容性提示 <Badge type="warning" text="alpha" />
 
 - 语法
 
