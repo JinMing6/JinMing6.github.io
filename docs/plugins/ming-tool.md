@@ -8,13 +8,14 @@ outline: deep
 
 ## 特性
 
-- ✅ [公共下拉选项](#公共下拉选项)
-- ✅ [空值替换](#空值替换)
-- ✅ [下载文件](#下载文件)
-- ✅ [随机颜色](#随机颜色)
-- ✅ [图片转 Webp](#图片转-webp)
-- ✅ [根据 url 获取文件名及后缀](#根据-url-获取文件名及后缀)
-- ✅ [浏览器兼容性提示](#浏览器兼容性提示)
+- ✅ [公共下拉选项](#option)
+- ✅ [空值替换](#replaceempty)
+- ✅ [下载文件](#downloadfilev2)
+- ✅ [随机颜色](#getrandomcolor)
+- ✅ [图片转 Webp](#convert2webp)
+- ✅ [根据 url 获取文件名及后缀](#getfilenamefromurl)
+- ✅ [根据 content-disposition 获取文件名及后缀](#getfilenamefromdisposition)
+- ✅ [浏览器兼容性提示](#compatibility)
 
 ## 安装
 
@@ -36,7 +37,9 @@ $ pnpm add @jinming6/ming-tool -S
 
 ## API
 
-### 公共下拉选项
+### Option
+
+公共下拉选项
 
 - 语法
 
@@ -44,7 +47,7 @@ $ pnpm add @jinming6/ming-tool -S
 
 - 参数
 
-> options
+options
 
 | 字段       | 类型     | 默认                                 | 描述         |
 | ---------- | -------- | ------------------------------------ | ------------ |
@@ -97,7 +100,9 @@ option.update({dataSource})
 option.update({dataSource: []})
 ```
 
-### 空值替换
+### replaceEmpty
+
+空值替换
 
 - 语法
 
@@ -123,7 +128,13 @@ console.log(replaceEmpty(true)); // true
 console.log(replaceEmpty(false)); // false
 ```
 
-### 下载文件
+### downloadFile <Badge type="danger" text="弃用" />
+
+下载文件
+
+> [!NOTE]
+>
+> 建议使用 [downloadFileV2](#downloadfilev2) 代替
 
 - 语法
 
@@ -131,7 +142,7 @@ console.log(replaceEmpty(false)); // false
 
 - 参数
 
-> options
+options
 
 | 字段        | 类型          | 默认 | 描述                                  |
 | ----------- | ------------- | ---- | ------------------------------------- |
@@ -170,21 +181,96 @@ downloadFile({
 
 > [!NOTE]
 >
-> - 当采用 `url 方式`时，如果是非同源地址，会导致无法下载文件（例如，只打开一个新标签页展示）建议用接口获取文件流，然后采用`文件流 方式`下载。
-> - 如果是附件服务的资源地址，则正常下载（前提是，附件服务器已配置允许下载）。
+> - 当采用 `url 方式`时，如果是非同源地址，会导致无法下载文件（例如，只打开一个新标签页展示）
+> - 建议用接口获取文件流，然后采用`文件流 方式`下载
+> - 如果是附件服务的资源地址，则正常下载（前提，附件服务器已配置允许下载）
 
-### 随机颜色
+### downloadFileV2
+
+下载文件 (已进行传参优化)
+
+- 语法
+
+`downloadFileV2(options)`
+
+- 参数
+
+options
+
+| 字段       | 类型                   | 默认 | 描述                                  |
+| ---------- | ---------------------- | ---- | ------------------------------------- |
+| type       | `String`               | -    | 输入类型 (` 'url'`、`'arrayBuffer' `) |
+| filename   | `String`               | -    | 文件名称                              |
+| dataSource | `String / ArrayBuffer` | -    | 文件 url 或 arrayBuffer               |
 
 - 示例
 
 ```js
-import { getRandomRg, getRandomHex } from '@jinming6/ming-tool';
+import { downloadFileV2 } from '@jinming6/ming-tool';
 
-console.log(getRandomRg()); // 获取一个随机的rgb色值，例：rgb(0, 0, 0)
+/* 根据文件流进行下载，文件流一般从接口返回(例如excel导出) */
+// const str = '大道泛兮，其可左右。';
+// const encoder = new TextEncoder();
+// const encodedData = encoder.encode(str);
+// const buffer = new ArrayBuffer(encodedData.byteLength);
+// const uint8Array = new Uint8Array(buffer);
+// uint8Array.set(encodedData);
+// downloadFileV2({
+//   type: 'arrayBuffer',
+//   filename: 'example.txt',
+//   dataSource: buffer,
+// })
+
+/* 根据url进行下载 */
+const url = './demo.png'; // 或者提供一个附件资源地址
+const filename = 'test.png';
+downloadFileV2({
+  type: 'url',
+  filename,
+  dataSource: url,
+});
+```
+
+### getRandomRgb
+
+随机 rgb 色值
+
+- 示例
+
+```js
+import { getRandomRgb } from '@jinming6/ming-tool';
+
+console.log(getRandomRgb()); // 获取一个随机的rgb色值，例：rgb(0, 0, 0)
+```
+
+### getRandomHex
+
+随机 hex 色值
+
+- 示例
+
+```js
+import { getRandomHex } from '@jinming6/ming-tool';
+
 console.log(getRandomHex()); // 获取一个随机的hex色值，例：#000000
 ```
 
-### 图片转 Webp
+### getRandomColor
+
+随机 rgb / hex 色值
+
+- 示例
+
+```js
+import { getRandomColor } from '@jinming6/ming-tool';
+
+console.log(getRandomColor({ type: 'rgb' })); // 获取一个随机的rgb色值，例：rgb(0, 0, 0)
+console.log(getRandomColor({ type: 'hex' })); // 获取一个随机的hex色值，例：#000000
+```
+
+### convert2Webp
+
+图片转 Webp 格式
 
 - 语法
 
@@ -208,7 +294,9 @@ const webpBlob = convert2Webp(file, 0.6);
 downloadArrayBuffer(webpBlob, 'example.webp');
 ```
 
-### 根据 url 获取文件名及后缀
+### getFilenameFromUrl
+
+根据 url 获取文件名及后缀
 
 - 语法
 
@@ -229,15 +317,43 @@ const url = 'https://www.baidu.com/abc.jpg';
 getFilenameFromUrl(url); // abc.jpg
 ```
 
-### 浏览器兼容性提示 <Badge type="warning" text="alpha" />
+### getFilenameFromDisposition
+
+根据 content-disposition 获取文件名及后缀
 
 - 语法
 
-`getFilenameFromUrl(options)`
+`getFilenameFromDisposition(contentDispotition)`
 
 - 参数
 
-> options
+| 字段               | 类型     | 默认 | 描述       |
+| ------------------ | -------- | ---- | ---------- |
+| contentDispotition | `String` | -    | 响应头内容 |
+
+- 示例
+
+```js
+import { getFilenameFromDisposition } from '@jinming6/ming-tool';
+
+console.log(getFilenameFromDisposition('attachment; filename="example.txt"')); // 'example.txt'
+console.log(getFilenameFromDisposition('attachment; filename=example.txt')); // 'example.txt'
+console.log(getFilenameFromDisposition('attachment; filename*=UTF-8''%e4%b8%ad%e6%96%87.txt')); // '中文.txt'
+console.log(getFilenameFromDisposition('attachment')); // null
+console.log(getFilenameFromDisposition(null)); // null
+```
+
+### Compatibility <Badge type="warning" text="实验" />
+
+浏览器兼容性提示
+
+- 语法
+
+`Compatibility(options)`
+
+- 参数
+
+options
 
 | 字段    | 类型            | 默认 | 描述             |
 | ------- | --------------- | ---- | ---------------- |
@@ -247,14 +363,14 @@ getFilenameFromUrl(url); // abc.jpg
 | chrome  | `BrowserOption` | -    | chrome 版本配置  |
 | safari  | `BrowserOption` | -    | safari 版本配置  |
 
-> BrowserOption
+BrowserOption
 
 | 字段         | 类型     | 默认 | 描述                                      |
 | ------------ | -------- | ---- | ----------------------------------------- |
 | minVersion   | `String` | -    | 最低版本                                  |
 | downloadLink | `String` | -    | 浏览器下载地址 (不配置，则会默认官方地址) |
 
-> 默认的 downloadLink 路径
+默认的 downloadLink 路径
 
 ```json
 {
@@ -266,7 +382,7 @@ getFilenameFromUrl(url); // abc.jpg
 }
 ```
 
-> Methods
+Methods
 
 | 字段    | 默认 | 描述     |
 | ------- | ---- | -------- |
