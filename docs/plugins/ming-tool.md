@@ -15,7 +15,7 @@ outline: deep
 - ✅ [图片转 Webp](#convert2webp)
 - ✅ [根据 url 获取文件名及后缀](#getfilenamefromurl)
 - ✅ [根据 content-disposition 获取文件名及后缀](#getfilenamefromdisposition)
-- ✅ [浏览器兼容性提示](#compatibility)
+- ✅ ~~[浏览器兼容性提示](#compatibility)~~
 
 ## 安装
 
@@ -128,13 +128,13 @@ console.log(replaceEmpty(true)); // true
 console.log(replaceEmpty(false)); // false
 ```
 
-### downloadFile <Badge type="danger" text="弃用" />
-
-下载文件
+### ~~downloadFile~~ <Badge type="danger" text="弃用" />
 
 > [!NOTE]
 >
 > 建议使用 [downloadFileV2](#downloadfilev2) 代替
+
+下载文件
 
 - 语法
 
@@ -343,7 +343,11 @@ console.log(getFilenameFromDisposition('attachment')); // null
 console.log(getFilenameFromDisposition(null)); // null
 ```
 
-### Compatibility <Badge type="warning" text="实验" />
+### ~~Compatibility~~ <Badge type="danger" text="废弃" />
+
+> [!NOTE]
+>
+> 推荐使用 [bowser](https://github.com/bowser-js/bowser?tab=readme-ov-file)
 
 浏览器兼容性提示
 
