@@ -16,9 +16,9 @@ outline: deep
 
 ## 特性
 
-- ✅ 合并`行`、`列`
-- ✅ 生成`合并`后的序号
-- ✅ 数据`分段`
+- :white_check_mark: 合并`行`、`列`
+- :white_check_mark: 生成`合并`后的序号
+- :white_check_mark: 数据`分段`
 
 ## 安装
 
