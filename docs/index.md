@@ -20,3 +20,10 @@ features:
     linkText: '点击查看'
     link: https://space.bilibili.com/248544247?spm_id_from=333.1007.0.0
 ---
+
+<style>
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);
+}
+</style>
