@@ -40,13 +40,9 @@ $ pnpm add @jinming6/merge-helper -S
 
 ## 快速上手
 
-### 合并 " 行 "
-
-- 效果
+合并 " 行 "
 
 ![capture-1710119346804.png](https://s2.loli.net/2024/03/11/Fb6mMay49HWjrke.png)
-
-- 代码
 
 ```js
 import { getMergedData, Mode, getFieldSpan } from '@jinming6/merge-helper';
@@ -103,13 +99,9 @@ function spanMethod({ row, column }) {
 }
 ```
 
-### 合并 " 列 "
-
-- 效果
+合并 " 列 "
 
 ![capture-1710119377249.png](https://s2.loli.net/2024/03/11/Tdqvt7L8cOiVjPK.png)
-
-- 代码
 
 ```js
 import { getMergedData, Mode, getFieldSpan } from '@jinming6/merge-helper';
@@ -165,29 +157,31 @@ const spanMethod = ({ row, column, columnIndex }) => {
 
 ### CellMerger
 
+单元格合并工具类
+
 - 语法
 
 `new CellMerger(options)`
 
-- 参数
+- options 属性
 
-| 名称        | 类型                  | 必填 | 描述                                                    |
-| ----------- | --------------------- | ---- | ------------------------------------------------------- |
-| dataSource  | Array                 | 是   | 数据源                                                  |
-| mergeFields | [Array](#mergefields) | 是   | 需要进行「行合并」的字段                                |
-| genSort     | Boolean               | 否   | 是否生成「行合并」后的序号                              |
-| sortBy      | String                | 否   | 按照该字段的纬度进行排序（默认取 mergeFields 的第一项） |
-| mode        | [Number](#mode)       | 是   | 合并模式                                                |
-| columns     | [Array](#columns)     | 否   | 列头                                                    |
-| reCalc      | Boolean               | 否   | 是否重新计算合并，默认 false                            |
+| 名称                        | 类型    | 必填 | 默认值 | 描述                                                     |
+| --------------------------- | ------- | ---- | ------ | -------------------------------------------------------- |
+| dataSource                  | Array   | 是   |        | 数据源                                                   |
+| [mergeFields](#mergefields) | Array   | 是   |        | 需要进行「行合并」的字段                                 |
+| genSort                     | Boolean | 否   |        | 是否生成「行合并」后的序号                               |
+| sortBy                      | String  | 否   |        | 按照该字段的纬度进行排序 ( 默认取 mergeFields 的第一项 ) |
+| [mode](#mode)               | Number  | 是   |        | 合并模式                                                 |
+| [columns](#columns)         | Array   | 否   |        | 列头                                                     |
+| reCalc                      | Boolean | 否   | false  | 是否重新计算合并 ( 例如，动态表格增加后重新计算合并 )    |
 
-- 方法
+- 实例方法
 
 | 名称          | 参数 | 描述             |
 | ------------- | ---- | ---------------- |
 | getMergedData | --   | 获取合并后的数据 |
 
-- 示例
+- 示例代码
 
 ```js
 import { CellMerger, Mode } from '@jinming6/merge-helper';
@@ -219,17 +213,19 @@ const cellMerger = new CellMerger(options);
 const mergedData = cellMerger.getMergedData();
 ```
 
-### mode
+#### mode
 
-- 参数
+合并模式
 
-| 名称       | 类型       | 值    | 描述                    |
-| ---------- | ---------- | ----- | ----------------------- |
-| Row        | Number     | 0     | 合并行                  |
-| Col        | Number     | 1     | 合并列                  |
-| ~~RowCol~~ | ~~Number~~ | ~~2~~ | ~~合并行和列 (已弃用)~~ |
+- 属性
 
-- 示例
+| 名称       | 类型       | 值    | 描述                                                                   |
+| ---------- | ---------- | ----- | ---------------------------------------------------------------------- |
+| Row        | Number     | 0     | 合并行                                                                 |
+| Col        | Number     | 1     | 合并列                                                                 |
+| ~~RowCol~~ | ~~Number~~ | ~~2~~ | ~~合并行和列 (已弃用)~~ :rotating_light:: 实际展示效果不好，所以废弃了 |
+
+- 示例代码
 
 ```js
 import { Mode } from '@jinming6/merge-helper';
@@ -237,18 +233,22 @@ import { Mode } from '@jinming6/merge-helper';
 const mode = Mode.Row;
 ```
 
-### mergeFields
+#### mergeFields
 
 在进行“列”合并时，必须传入全部列的 prop。
 
-- 参数
+- 语法
+
+`mergeFields: item[]`
+
+- item 属性
 
 | 名称     | 类型     | 必填 | 描述                         |
 | -------- | -------- | ---- | ---------------------------- |
 | field    | String   | 是   | 字段名称                     |
 | callback | Function | 是   | 自定义逻辑进行「行合并计算」 |
 
-- 示例
+- 示例代码
 
 ```js
 const mergeFields = ['province'];
@@ -264,17 +264,21 @@ const mergeFields = [
 ]; */
 ```
 
-### columns
+#### columns
 
 定义列数组，一般在“列”合并中使用。
 
-- 参数
+- 语法
+
+`columns: item[]`
+
+- item 属性
 
 | 名称 | 类型   | 必填 | 描述   |
 | ---- | ------ | ---- | ------ |
 | prop | String | 是   | 列字段 |
 
-- 示例
+- 示例代码
 
 ```js
 const columns = [
@@ -298,11 +302,11 @@ const columns = [
 
 `getMergedData(options)`
 
-- 参数
+- options 属性
 
 同 [CellMerger](#cellmerger)
 
-- 示例
+- 示例代码
 
 ```js
 import { getMergedData, Mode } from '@jinming6/merge-helper';
@@ -335,30 +339,30 @@ const mergeData = getMergedData(options);
 
 ### getFieldSpan
 
-获取字段合并配置
+获取字段合并配置，例如为 [el-table](https://element.eleme.io/#/zh-CN/component/table) 处理 spanMethod
 
 - 语法
 
 `getFieldSpan(row, field)`
 
-- 参数
+- 参数说明
 
 | 名称  | 类型   | 必填 | 描述               |
 | ----- | ------ | ---- | ------------------ |
 | row   | Object | 是   | 行数据             |
 | field | String | 是   | 目标字段的合并数据 |
 
-- 示例
+- 示例代码
 
 ```js
 import { getFieldSpan } from '@jinming6/merge-helper';
 
 const spanMethod = ({ row, columnIndex }) => {
-  // 将第1列按照省份进行合并
   if (columnIndex === 0) {
+    // 核心代码
     return getFieldSpan(row, 'province');
   }
-  // 或者输出 [1, 1]
+
   return {
     rowspan: 1,
     colspan: 1,
@@ -374,17 +378,17 @@ const spanMethod = ({ row, columnIndex }) => {
 
 `splitIntoFragments(options)`
 
-- 参数
+- options 属性
 
 | 名称     | 类型   | 必填 | 描述     |
 | -------- | ------ | ---- | -------- |
 | pageSize | Number | 是   | 每段条数 |
 
 ::: tip
-其他参数同 cellMerge
+其他属性同 [CellMerger](#cellmerger)
 :::
 
-- 示例
+- 示例代码
 
 ```js
 import { splitIntoFragments } from '@jinming6/merge-helper';
@@ -446,13 +450,13 @@ const result = splitIntoFragments({
 
 `getSortNo(row)`
 
-- 参数
+- 参数说明
 
 | 名称 | 类型   | 必填 | 描述   |
 | ---- | ------ | ---- | ------ |
 | row  | Object | 是   | 行数据 |
 
-- 示例
+- 示例代码
 
 ```js
 import { getSortNo } from '@jinming6/merge-helper';
@@ -466,7 +470,7 @@ import { getSortNo } from '@jinming6/merge-helper';
 
 ## FAQ
 
-### 按分组来`合并行`出现错版的情况？
+### 按分组来 “合并行” 出现错版的情况 ?
 
 1. 给需要合并的分组添加统一的`groupId`来区分是否为一组。
 2. `mergeFields`自定义合并逻辑，加上前置判断`groupId`。
@@ -483,6 +487,10 @@ const mergeFields = [
   },
 ];
 ```
+
+### 目前是否支持 mode.RowCol ?
+
+支持，但是不建议使用，因为合并后展示效果不好。
 
 ## 结语
 
