@@ -3,8 +3,7 @@ layout: home
 
 hero:
   name: 'Jinming6'
-  text: '大道泛兮，其可左右'
-  tagline: '大道广泛流行，左右上下无所不到'
+  tagline: '三军可夺帅也，匹夫不可夺志也。'
   actions:
     - theme: brand
       text: 开始阅读
