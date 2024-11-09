@@ -4,18 +4,18 @@ outline: deep
 
 # ming-tool
 
-🔧 前端工具库
+开发过程中，高频使用的方法。
 
 ## 特性
 
-- ✅ [公共下拉选项](#option)
-- ✅ [空值替换](#replaceempty)
-- ✅ [下载文件](#downloadfilev2)
-- ✅ [随机颜色](#getrandomcolor)
-- ✅ [图片转 Webp](#convert2webp)
-- ✅ [根据 url 获取文件名及后缀](#getfilenamefromurl)
-- ✅ [根据 content-disposition 获取文件名及后缀](#getfilenamefromdisposition)
-- ✅ ~~[浏览器兼容性提示](#compatibility)~~
+- :white_check_mark: [公共下拉选项](#option)
+- :white_check_mark: [空值替换](#replaceempty)
+- :white_check_mark: [下载文件](#downloadfilev2)
+- :white_check_mark: [随机颜色](#getrandomcolor)
+- :white_check_mark: [图片转 Webp](#convert2webp)
+- :white_check_mark: [根据 url 获取文件名及后缀](#getfilenamefromurl)
+- :white_check_mark: [根据 content-disposition 获取文件名及后缀](#getfilenamefromdisposition)
+- :white_check_mark: ~~[浏览器兼容性提示](#compatibility)~~
 
 ## 安装
 
@@ -45,22 +45,20 @@ $ pnpm add @jinming6/ming-tool -S
 
 `new Option(options)`
 
-- 参数
-
-options
+- options 属性
 
 | 字段       | 类型     | 默认                                 | 描述         |
 | ---------- | -------- | ------------------------------------ | ------------ |
 | dataSource | `Array`  | -                                    | 数据源       |
 | fieldsName | `Object` | `{ label: 'label', value: 'value' }` | 选项字段配置 |
 
-- 方法
+- 实例方法
 
 | 名称   | 参数      | 返回 | 描述       |
 | ------ | --------- | ---- | ---------- |
 | update | `options` | -    | 新参数配置 |
 
-- 示例
+- 示例代码
 
 ```js
 import { Option } from '@jinming6/ming-tool';
@@ -108,14 +106,14 @@ option.update({dataSource: []})
 
 `replaceEmpty(value, replaceStr)`
 
-- 参数
+- 参数说明
 
 | 字段       | 类型      | 默认 | 描述       |
 | ---------- | --------- | ---- | ---------- |
 | value      | `Unknown` | -    | 原始值     |
 | replaceStr | `String`  | `--` | 空值占位符 |
 
-- 示例
+- 示例代码
 
 ```js
 import { replaceEmpty } from '@jinming6/ming-tool';
@@ -130,64 +128,15 @@ console.log(replaceEmpty(false)); // false
 
 ### ~~downloadFile~~ <Badge type="danger" text="弃用" />
 
-> [!NOTE]
->
-> 建议使用 [downloadFileV2](#downloadfilev2) 代替
-
 下载文件
 
-- 语法
-
-`downloadFile(options)`
-
-- 参数
-
-options
-
-| 字段        | 类型          | 默认 | 描述                                  |
-| ----------- | ------------- | ---- | ------------------------------------- |
-| inputType   | `String`      | -    | 输入类型 (` 'url'`、`'arrayBuffer' `) |
-| filename    | `String`      | -    | 文件名称                              |
-| url         | `String`      | -    | 文件 url 地址                         |
-| arrayBuffer | `ArrayBuffer` | -    | 文件流                                |
-
-- 示例
-
-```js
-import { downloadFile } from '@jinming6/ming-tool';
-
-/* 根据文件流进行下载，文件流一般从接口返回(例如excel导出) */
-// const str = '大道泛兮，其可左右。';
-// const encoder = new TextEncoder();
-// const encodedData = encoder.encode(str);
-// const buffer = new ArrayBuffer(encodedData.byteLength);
-// const uint8Array = new Uint8Array(buffer);
-// uint8Array.set(encodedData);
-// downloadFile({
-//   inputType: 'arrayBuffer',
-//   arrayBuffer: buffer,
-//   filename: 'example.txt',
-// })
-
-/* 根据url进行下载 */
-const url = './demo.png'; // 或者提供一个附件资源地址
-const filename = 'test.png';
-downloadFile({
-  inputType: 'url',
-  url,
-  filename,
-});
-```
-
 > [!NOTE]
 >
-> - 当采用 `url 方式`时，如果是非同源地址，会导致无法下载文件（例如，只打开一个新标签页展示）
-> - 建议用接口获取文件流，然后采用`文件流 方式`下载
-> - 如果是附件服务的资源地址，则正常下载（前提，附件服务器已配置允许下载）
+> 请使用 [downloadFileV2](#downloadfilev2)
 
 ### downloadFileV2
 
-下载文件 (已进行传参优化)
+下载文件
 
 - 语法
 
@@ -231,11 +180,18 @@ downloadFileV2({
 });
 ```
 
+> [!NOTE]
+>
+> - 当采用 “url” 方式时，如果是非同源地址，会导致无法下载文件 ( 例如，只打开一个新标签页展示 )
+> - 建议用接口获取文件流，然后采用 “arrayBuffer” 方式下载
+> - 如果是附件服务的资源地址，则正常下载 ( 前提，附件服务器已配置允许下载 )
+> - 如果 web 应用地址是 http 协议，则下载时浏览器会提示是否阻止下载 ( 浏览器的安全策略 )
+
 ### getRandomRgb
 
 随机 rgb 色值
 
-- 示例
+- 示例代码
 
 ```js
 import { getRandomRgb } from '@jinming6/ming-tool';
@@ -247,7 +203,7 @@ console.log(getRandomRgb()); // 获取一个随机的rgb色值，例：rgb(0, 0,
 
 随机 hex 色值
 
-- 示例
+- 示例代码
 
 ```js
 import { getRandomHex } from '@jinming6/ming-tool';
@@ -259,7 +215,7 @@ console.log(getRandomHex()); // 获取一个随机的hex色值，例：#000000
 
 随机 rgb / hex 色值
 
-- 示例
+- 示例代码
 
 ```js
 import { getRandomColor } from '@jinming6/ming-tool';
@@ -274,16 +230,16 @@ console.log(getRandomColor({ type: 'hex' })); // 获取一个随机的hex色值�
 
 - 语法
 
-`convert2Webp(file, filename)`
+`convert2Webp(file, quality)`
 
-- 参数
+- 参数说明
 
 | 字段    | 类型           | 默认 | 描述           |
 | ------- | -------------- | ---- | -------------- |
 | file    | `File`或`Blob` | -    | 文件对象       |
 | quality | `Number`       | -    | 压缩率 `(0~1)` |
 
-- 示例
+- 示例代码
 
 ```js
 import { convert2Webp, downloadArrayBuffer } from '@jinming6/ming-tool';
@@ -302,13 +258,13 @@ downloadArrayBuffer(webpBlob, 'example.webp');
 
 `getFilenameFromUrl(url)`
 
-- 参数
+- 参数说明
 
 | 字段 | 类型     | 默认 | 描述     |
 | ---- | -------- | ---- | -------- |
 | url  | `String` | -    | 文件链接 |
 
-- 示例
+- 示例代码
 
 ```js
 import { getFilenameFromUrl } from '@jinming6/ming-tool';
@@ -325,13 +281,13 @@ getFilenameFromUrl(url); // abc.jpg
 
 `getFilenameFromDisposition(contentDispotition)`
 
-- 参数
+- 参数说明
 
 | 字段               | 类型     | 默认 | 描述       |
 | ------------------ | -------- | ---- | ---------- |
 | contentDispotition | `String` | -    | 响应头内容 |
 
-- 示例
+- 示例代码
 
 ```js
 import { getFilenameFromDisposition } from '@jinming6/ming-tool';
@@ -345,68 +301,11 @@ console.log(getFilenameFromDisposition(null)); // null
 
 ### ~~Compatibility~~ <Badge type="danger" text="废弃" />
 
+浏览器兼容性提示
+
 > [!NOTE]
 >
 > 推荐使用 [bowser](https://github.com/bowser-js/bowser?tab=readme-ov-file)
-
-浏览器兼容性提示
-
-- 语法
-
-`Compatibility(options)`
-
-- 参数
-
-options
-
-| 字段    | 类型            | 默认 | 描述             |
-| ------- | --------------- | ---- | ---------------- |
-| edge    | `BrowserOption` | -    | edge 版本配置    |
-| firefox | `BrowserOption` | -    | firefox 版本配置 |
-| opera   | `BrowserOption` | -    | opera 版本配置   |
-| chrome  | `BrowserOption` | -    | chrome 版本配置  |
-| safari  | `BrowserOption` | -    | safari 版本配置  |
-
-BrowserOption
-
-| 字段         | 类型     | 默认 | 描述                                      |
-| ------------ | -------- | ---- | ----------------------------------------- |
-| minVersion   | `String` | -    | 最低版本                                  |
-| downloadLink | `String` | -    | 浏览器下载地址 (不配置，则会默认官方地址) |
-
-默认的 downloadLink 路径
-
-```json
-{
-  "edge": "https://www.microsoft.com/zh-cn/edge",
-  "firefox": "https://www.firefox.com.cn/",
-  "chrome": "https://www.google.cn/chrome/",
-  "opera": "https://www.opera.com/zh-cn",
-  "safari": "https://www.apple.com/cn/safari/"
-}
-```
-
-Methods
-
-| 字段    | 默认 | 描述     |
-| ------- | ---- | -------- |
-| destroy | -    | 销毁实例 |
-
-- 示例
-
-```js
-import { Compatibility } from '@jinming6/ming-tool';
-
-// 如果当前浏览器不满足条件，则会在顶部添加一个fixed元素进行提示。
-const compatibility = new Compatibility({
-  minBrowserVersion: { chrome: { minVersion: '124' } },
-});
-
-// 销毁实例
-compatibility.destroy();
-```
-
-![1714229103261.jpg](https://s2.loli.net/2024/04/27/tkr9IHmpQRaMqos.jpg)
 
 ## 结语
 
