@@ -16,6 +16,8 @@ outline: deep
 - :white_check_mark: [根据 url 获取文件名及后缀](#getfilenamefromurl)
 - :white_check_mark: [根据 content-disposition 获取文件名及后缀](#getfilenamefromdisposition)
 - :white_check_mark: ~~[浏览器兼容性提示](#compatibility)~~
+- :white_check_mark: [拆分日期区间](#splitdaterange)
+- :white_check_mark: [组合日期区间](#combinedaterange)
 
 ## 安装
 
@@ -110,8 +112,8 @@ option.update({dataSource: []})
 
 | 字段       | 类型      | 默认 | 描述       |
 | ---------- | --------- | ---- | ---------- |
-| value      | `Unknown` | -    | 原始值     |
-| replaceStr | `String`  | `--` | 空值占位符 |
+| value      | `unknown` | -    | 原始值     |
+| replaceStr | `string`  | `--` | 空值占位符 |
 
 - 示例代码
 
@@ -148,9 +150,9 @@ options
 
 | 字段       | 类型                   | 默认 | 描述                                  |
 | ---------- | ---------------------- | ---- | ------------------------------------- |
-| type       | `String`               | -    | 输入类型 (` 'url'`、`'arrayBuffer' `) |
-| filename   | `String`               | -    | 文件名称                              |
-| dataSource | `String / ArrayBuffer` | -    | 文件 url 或 arrayBuffer               |
+| type       | `string`               | -    | 输入类型 (` 'url'`、`'arrayBuffer' `) |
+| filename   | `string`               | -    | 文件名称                              |
+| dataSource | `string / ArrayBuffer` | -    | 文件 url 或 arrayBuffer               |
 
 - 示例
 
@@ -236,8 +238,8 @@ console.log(getRandomColor({ type: 'hex' })); // 获取一个随机的hex色值�
 
 | 字段    | 类型           | 默认 | 描述           |
 | ------- | -------------- | ---- | -------------- |
-| file    | `File`或`Blob` | -    | 文件对象       |
-| quality | `Number`       | -    | 压缩率 `(0~1)` |
+| file    | `File \| Blob` | -    | 文件对象       |
+| quality | `number`       | -    | 压缩率 `(0~1)` |
 
 - 示例代码
 
@@ -262,7 +264,7 @@ downloadArrayBuffer(webpBlob, 'example.webp');
 
 | 字段 | 类型     | 默认 | 描述     |
 | ---- | -------- | ---- | -------- |
-| url  | `String` | -    | 文件链接 |
+| url  | `string` | -    | 文件链接 |
 
 - 示例代码
 
@@ -285,7 +287,7 @@ getFilenameFromUrl(url); // abc.jpg
 
 | 字段               | 类型     | 默认 | 描述       |
 | ------------------ | -------- | ---- | ---------- |
-| contentDispotition | `String` | -    | 响应头内容 |
+| contentDispotition | `string` | -    | 响应头内容 |
 
 - 示例代码
 
@@ -306,6 +308,63 @@ console.log(getFilenameFromDisposition(null)); // null
 > [!NOTE]
 >
 > 推荐使用 [bowser](https://github.com/bowser-js/bowser?tab=readme-ov-file)
+
+### splitDateRange
+
+拆分日期区间，一般用来提交给后端。
+
+- 语法
+
+`splitDateRange(options)`
+
+- options 属性
+
+| 字段          | 类型             | 必填 | 默认      | 描述               |
+| ------------- | ---------------- | ---- | --------- | ------------------ |
+| dateRange     | `string[]`       | 是   | -         | 日期区间           |
+| outStartField | `string`         | 否   | startDate | 输出的开始日期字段 |
+| outEndField   | `string`         | 否   | endDate   | 输出的结束日期字段 |
+| defaultValue  | `string \| null` | 否   | null      | 默认值             |
+
+- 示例代码
+
+```js
+import { splitDateRange } from '@jinming6/ming-tool';
+
+const result = splitDateRange({
+  dateRange: ['2024-11-13', '2024-11-14'],
+});
+
+console.log(result); // { startDate: '2024-11-13', endDate: '2024-11-14' }
+```
+
+### combineDateRange
+
+组合日期区间，一般用来给前端回显。
+
+- 语法
+
+`combineDateRange(options)`
+
+- options 属性
+
+| 字段         | 类型                             | 必填 | 默认      | 描述               |
+| ------------ | -------------------------------- | ---- | --------- | ------------------ |
+| obj          | `Record<string, string \| null>` | 是   | -         | 对象参数           |
+| inStartField | `string`                         | 否   | startDate | 输入的开始日期字段 |
+| inEndField   | `string`                         | 否   | endDate   | 输入的结束日期字段 |
+
+- 示例代码
+
+```js
+import { combineDateRange } from '@jinming6/ming-tool';
+
+const result = combineDateRange({
+  obj: { startDate: '2024-11-13', endDate: '2024-11-14' },
+});
+
+console.log(result); // ['2024-11-13', '2024-11-14']
+```
 
 ## 结语
 
