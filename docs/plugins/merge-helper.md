@@ -494,4 +494,4 @@ const mergeFields = [
 
 ## 结语
 
-如果 `@jinming6/merge-helper` 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/merge-helper) 哦。
+如果 `@jinming6/merge-helper` 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/ming/tree/main/packages/merge-helper) 哦。

@@ -368,4 +368,4 @@ console.log(result); // ['2024-11-13', '2024-11-14']
 
 ## 结语
 
-如果 `@jinming6/ming-tool` 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/ming-tool) 哦。
+如果 `@jinming6/ming-tool` 对您有所帮助的话，可以去点个 [Star](https://github.com/Jinming6/ming/tree/main/packages/ming-tool) 哦。
