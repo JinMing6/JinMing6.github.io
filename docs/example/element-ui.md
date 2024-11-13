@@ -2,17 +2,19 @@
 outline: deep
 ---
 
-# Element UI 表格
+# Element UI 业务组件
 
 一些拓展功能的实现
 
-## shift 多选
+## el-table
 
-### 效果展示
+### shift 多选
+
+- 效果展示
 
 ![Kapture 2023-11-25 at 21.16.05.gif](https://s2.loli.net/2023/11/25/Fcmnwhd3gLqX1jS.gif)
 
-### 代码实现
+- 代码实现
 
 ```html
 <!DOCTYPE html>
@@ -140,6 +142,10 @@ outline: deep
 </html>
 ```
 
-## 单元格合并
+### 单元格合并
 
 建议使用 [@jinming6/merge-helper](../plugins/merge-helper.md)
+
+<!-- TODO 待编写 -->
+<!-- ## el-select -->
+<!-- ### 高级下拉 -->

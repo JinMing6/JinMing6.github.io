@@ -35,8 +35,8 @@ export default defineConfig({
               link: '/example/rotate-banner',
             },
             {
-              text: 'Element UI 表格',
-              link: '/example/el-table',
+              text: 'Element UI 业务组件',
+              link: '/example/element-ui',
             },
             {
               text: 'OCR 应用示例',
