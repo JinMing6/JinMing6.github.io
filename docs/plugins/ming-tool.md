@@ -18,6 +18,7 @@ outline: deep
 - :white_check_mark: ~~[浏览器兼容性提示](#compatibility)~~
 - :white_check_mark: [拆分日期区间](#splitdaterange)
 - :white_check_mark: [组合日期区间](#combinedaterange)
+- :white_check_mark: [格式化地址字符串](#fmtaddressstr)
 
 ## 安装
 
@@ -364,6 +365,41 @@ const result = combineDateRange({
 });
 
 console.log(result); // ['2024-11-13', '2024-11-14']
+```
+
+### fmtAddressStr
+
+格式化地址字符串
+
+- 语法
+
+`fmtAddressStr(options)`
+
+- options 属性
+
+| 字段        | 类型       | 必填 | 默认 | 描述                             |
+| ----------- | ---------- | ---- | ---- | -------------------------------- |
+| addressStr  | `string`   | 是   | -    | 原始地址字符串                   |
+| needSplit   | `boolean`  | 否   | true | 是否需要分隔                     |
+| splitFlag   | `boolean`  | 否   | true | 分隔符                           |
+| needJoin    | `boolean`  | 否   | true | 是否需要拼接                     |
+| joinFlag    | `string`   | 否   | ,    | 拼接符                           |
+| extraStrArr | `string[]` | 否   |      | 额外的字符串数组(例如，详情地址) |
+
+- 示例代码
+
+```js
+import { fmtAddressStr } from '@jinming6/ming-tool';
+
+const result = fmtAddressStr({
+  addressStr: '山东省,青岛市,崂山区',
+  needSplit: true,
+  needJoin: true,
+  extraStrArr: ['xx街道xx号'],
+  joinFlag: '',
+});
+
+console.log(result); // 山东省青岛市崂山区xx街道xx号
 ```
 
 ## 结语
