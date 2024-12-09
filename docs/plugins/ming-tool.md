@@ -38,6 +38,14 @@ $ pnpm add @jinming6/ming-tool -S
 
 :::
 
+```js
+// Web 环境
+import { Option } from '@jinming6/ming-tool';
+
+// Node.js 环境
+import { Option } from '@jinming6/ming-tool/dist/cjs/ming-tool.min.js';
+```
+
 ## API
 
 ### Option

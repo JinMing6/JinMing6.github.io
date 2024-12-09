@@ -38,6 +38,14 @@ $ pnpm add @jinming6/merge-helper -S
 
 :::
 
+```js
+// Web 环境
+import { getMergedData } from '@jinming6/merge-helper';
+
+// Node.js 环境
+import { getMergedData } from '@jinming6/merge-helper/dist/cjs/merge-helper.min.js';
+```
+
 ## 快速上手
 
 合并 " 行 "
