@@ -65,9 +65,27 @@ import { Option } from '@jinming6/ming-tool/dist/cjs/ming-tool.min.js';
 
 - 实例方法
 
-| 名称   | 参数      | 返回 | 描述       |
-| ------ | --------- | ---- | ---------- |
-| update | `options` | -    | 新参数配置 |
+| 名称     | 参数              | 返回 | 描述       |
+| -------- | ----------------- | ---- | ---------- |
+| update   | `同 options`      | -    | 新参数配置 |
+| getLabel | `GetLabelOptions` | -    | 获取 label |
+
+```ts
+export interface GetLabelOptions {
+  /**
+   * 传入的value值
+   */
+  key: string;
+  /**
+   * 是否允许空值替换
+   */
+  allowReplaceEmpty?: boolean;
+  /**
+   * 允许空值替换的占位符
+   */
+  replaceStr?: string;
+}
+```
 
 - 示例代码
 
@@ -294,9 +312,11 @@ getFilenameFromUrl(url); // abc.jpg
 
 - 参数说明
 
-| 字段               | 类型     | 默认 | 描述       |
-| ------------------ | -------- | ---- | ---------- |
-| contentDispotition | `string` | -    | 响应头内容 |
+| 字段               | 类型       | 默认                 | 描述         |
+| ------------------ | ---------- | -------------------- | ------------ |
+| contentDispotition | `string`   | -                    | 响应头内容   |
+| decode             | `boolean`  | `true`               | 是否解码     |
+| decodeCallback     | `function` | `decodeURIComponent` | 解码回调函数 |
 
 - 示例代码
 
