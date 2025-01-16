@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: 'Jinming6'
-  tagline: '三军可夺帅也，匹夫不可夺志也。'
+  tagline: '最好的代码就是你不需要写的代码。'
   actions:
     - theme: brand
       text: 开始阅读
